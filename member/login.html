@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인 - 마켓콜라비</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+    <style>
+      .col-sm-8{
+          padding-top: 50px;
+          padding-bottom: 50px;
+      }
+      input{
+        width: 340px;
+        height: 54px;
+        padding: 0px 11px 1px 15px;
+        margin-bottom: 10px;
+      }
+      .text-center{
+        margin: 3px;
+      }
+      .text-right{
+        width: 340px;
+        text-align: right; 
+        margin: auto;
+      }
+
+      form {
+        margin: auto;
+        width: 640px;
+      }
+      #fillbtn {
+        background-color: #692498; 
+        color: white; 
+        width: 240px; 
+        height: 56px;
+      }
+      #borderbtn {
+        background-color: white; 
+        color: #692498; 
+        border:0.5px solid #692498; 
+        width: 240px; 
+        height: 56px;
+      }
+      a{
+        text-decoration: none;
+      }
+
+    </style>
+    <script>
+      function login() {
+        alert("> [로그인] 버튼 클릭 메인페이지로 이동");
+      }
+      function signup() {
+        alert("> [회원가입] 버튼 클릭 메인페이지로 이동");
+      }
+
+    </script>
+</head>
+  <body>
+    <header>
+      <p>header</p>
+    </header>
+    <div id="container">
+        <div class="row">
+            <div class="col-sm-2" style="background-color:lavender;">LEFT</div>
+            <div class="col-sm-8" style="background-color:lavenderblush;">
+              <div id="container">
+                  <h4 class="text-center" style="padding-bottom: 50px; color: #666666;">로그인</h4>
+              </div>
+
+                <div class="form-group">
+                  <form action="">
+                    <div class="col-xs-8 col-xs-offset-4 text-center">
+                      <div><input type="text" name="id" placeholder="아이디를 입력해주세요"></div>
+                      <div><input type="password" name="password" placeholder="비밀번호를 입력해주세요"></div>
+                    </div>
+                    <div id="findArea" class="text-right" style="margin-bottom: 20px;">
+                      <a href="/03_findId.html" class="text-dark"><small>아이디 찾기</small></a>
+                      <span class="text-dark"><small>|</small></span>
+                      <a href="/04_findPw.html" class="text-dark"><small>비밀번호 찾기</small></a>
+                    </div>
+                    <div class="form-group">
+                      <div class="text-center">
+                          <button type="submit" class="btn text-center" id="fillbtn" style="width: 340px; height: 54px;" onclick="login()"><b>로그인</b></button>
+                      </div>  
+                      <div class="text-center">
+                          <button type="submit" class="btn text-center" id="borderbtn" style="width: 340px; height: 54px;" onclick="signup()"><b>회원가입</b></button>
+                      </div>  
+                    </div>
+
+                  </form>
+                </div>
+              
+
+            </div>
+
+            
+            <div class="col-sm-2" style="background-color:lavender;">RIGHT</div>
+        </div>
+    </div>    
+    
+    
+    <footer>
+      <p>footer</p>
+    </footer>
+  </body>
+</html>

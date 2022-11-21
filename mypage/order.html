@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mypage - 마켓콜라비</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <style>
+    .btn:active, .btn:focus {
+        outline:none !important;
+        box-shadow:none !important;}
+    #mypage-cover{
+      padding-bottom: 50px;
+    }
+    #mypage-top {
+      padding-top: 50px;
+      margin: auto;
+      text-align: center;
+    }
+    .mypage-top2 {
+      height: 212px;
+      display: inline-block;
+      background-color: white;
+      margin-right:5px
+    }
+    .align-left {
+      text-align: left;
+    }
+    .btn{
+      padding: 0px;
+    }
+    #allgrade, #nextgrade {
+      font-size: small;
+      font-weight: bold;
+      background-color:#F7F7F7;
+      border-radius: 30px;
+    }
+    /* #grade-img, #save-rate {
+      margin-left: 80px;
+    } */
+    /* #grade-img {
+      padding-top: 10%;
+    } */
+    #eventbn{
+      background-color: darkolivegreen;
+      width: 100%;
+      height: 60px;
+    }
+    .mypage-top2 div {
+      margin-bottom: 10px
+    }
+    /* mypage-bottom */
+    .list-group-item a{
+        letter-spacing: -2px; 
+        text-decoration: none;
+        color:black;
+      }
+      .list-group-item:hover {
+        background-color: #FEF7FF;
+      }     
+      .list-group-item:hover >a {
+        font-weight: bold;
+        text-decoration: none;
+        color:#B03FE3;
+      }
+      .list-group-item:hover >span {
+        font-weight: bold;
+        text-decoration: none;
+        color:#B03FE3;
+      }
+      .list-group-item a {
+        width: 100%;
+        display: block;
+      }
+
+      li span{font-size: large;
+        font-weight: bold;
+        color: black;
+      }
+
+      h2{font-weight: bold;
+        letter-spacing: -2.5px;}
+
+      h4{font-weight: bolder;
+          letter-spacing: -3px; 
+          word-spacing: 5px;
+        }
+
+      /* h4 span{letter-spacing: -1px;
+        word-spacing: 2px;
+        vertical-align: middle;
+        font-size: small; color: gray;
+      } */
+      
+      .container-bottom-menu {
+        padding-right: 20px;
+      }     
+
+
+      .order-list-continer{
+        border: 14px 0px 16px;
+        width: 100%;
+        display: flex;
+      }
+      img{
+        width: 60px;
+        height: 78px;
+        margin : 10px 10px 50px 10px ;
+      }
+      .order-item-thumb {
+        float: left;
+      }
+      .order-item-col1 {
+        padding: 5px;
+        border: 3px solid purple;
+        width: 80%;
+      }
+      .order-item-col2 {
+        width: 20%;
+        border: 3px solid purple;
+        text-align: center;        
+      }
+      .order-item-col2 .order-item {
+        line-height: 150px;
+        vertical-align: middle;
+      }
+      .order-item-col2 .button-cover {
+        margin-top: -60px;
+      }
+     
+      dt{
+        font-size: small;
+        float: left;
+        padding: 5px;
+      }
+      dd {
+        font-size: 0.9em;
+      }
+      .order-item-row-top{
+        border-bottom: 0.5px solid grey;
+        padding: 8px 0px 13px;
+      }
+      .order-item-row-top a{
+        font-size: small;
+        color: grey;
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .order-data{
+        width: 100%;
+        display: inline inline-block;
+        padding: 5px;
+        margin-bottom: 0px;
+      }
+
+      .order-item-row {
+        text-align: left;
+        margin-bottom: 0px;
+      }
+  </style>
+  
+  </head>
+  <body>
+    <header>
+      <p>header</p>
+    </header>
+    <div id="container">
+        <div class="row" id="mypage-top">
+            <div class="col-sm-2" style="background-color:#F7F7F7;">LEFT</div>
+            <div class="col-sm-8" style="background-color:#F7F7F7;">
+              <div id="mypage-cover" style="height: 392px;">
+                <div class="d-flex align-items-stretch" id="mypage-top">
+ 
+                  <div class="mypage-top2" style="width: 50%; height: 218px; padding: 30px;">
+                    <div class="align-left d-flex align-items-stretch" id="grade-img" >
+                      <div style=" height: 48px; border: 1px solid blue;">
+                        <img src="" alt="그림" style="width: 48px; height: 48px;">
+                      </div>
+                      <div style="width: 156px; line-height: 48px; vertical-align: middle; height: 48px;border: 1px solid blue; ">
+                        <span class="align-left" id="user-name"><b>000님</b></span>
+                      </div>
+                    </div>
+                      
+                    <div class="align-left" id="save-rate"  style="text-align: left; border: 1px solid blue;">적립 0.1%</div>
+                    <div id="membership-info-button">
+                      <button type="button" class="btn" id="allgrade" style="width: 151px; height: 41px;" onclick="">전체등급 보기</button>
+                      <button type="button" class="btn" id="nextgrade"style="width: 151px; height: 41px;" onclick="">다음 달 예상등급 보기</button>
+                    </div>
+                  </div> 
+
+                  <div class="mypage-top2" style="width: 30%;">
+                      <button type="button" class="btn" style="width: 100%; height: 100%;" onclick=""> 
+                        <div style="padding-left: 30px; padding-bottom: 50px;">
+                          <div class="align-left" style="margin-bottom: 10px;"><b>적립금></b></div>
+                          <div></div>
+                          <div class="align-left">1,497원</div>
+                          <div class="align-left">소멸예정 0원</div>
+                        </div>
+                      </button>
+                  </div>
+
+                  <div class="mypage-top2" style="width: 20%;">
+                    <button type="button" class="btn" style="width: 100%; height: 100%; ">
+                      <div  style="padding-left: 30px; padding-bottom: 78px;">
+                        <div class="align-left" style="margin-bottom: 10px;"><b>쿠폰></b></div>
+                        <div class="align-left">1개</div>
+                      </div>
+                      <div></div>
+                    </button>
+                  </div>
+
+                </div>
+                
+                <img id="eventbn" src="#" alt="이미지 배너">
+              
+              </div>
+              
+            </div> 
+            <div class="col-sm-2" style="background-color: #F7F7F7;">RIGHT</div>
+        </div>
+
+        <div class="row" id="mypage-bottom">
+          <div class="col-sm-2" style="background-color:lavender;">LEFT</div>
+          
+          <div class="col-sm-2">
+            <div class="container-bottom-menu">
+              <h3 class="font-weight-bold">마이콜라비</h3>
+              <br>
+              <div>
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="" >공지사항</a>
+                    <span>></span>
+                  </li>
+                     <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <a href="">자주하는 질문</a>
+                    <span>></span>
+                  </li>
+                     <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <a href="">1:1 문의</a>
+                    <span>></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="row">
+
+                <div class="d-flex" style="width: 100%; height: 38px;">
+                  <div>
+                    <h4 style="margin-right: 20px;">주문내역</h4>
+                  </div>
+                  <div style="line-height: 38px; vertical-align: bottom;"><small>최대 지난 1개월간의 주문 내역까지 확인할 수 있어요</small></div>
+                  <div class="dropdown" style="float: right; margin-top: 5px; margin-left: 180px;">
+                    <button type="button" class="btn btn-outline-dark dropdown-toggle" data-toggle="dropdown" style="border-radius: 0; width: 150px;">
+                    1주일
+                    </button>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="#">1주일</a>
+                      <a class="dropdown-item" href="#">1개월</a>
+                      <a class="dropdown-item" href="#">1년</a>
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="order-list-continer">
+                <!-- DB 에서 LIST 불러와서 반복문 적용 -->
+
+                <div class="d-flex">
+                  <div class="order-item-col1">
+                    <div class="order-list-item">
+                    <div class="order-item-row-top">
+                      <span class="order-data">2022.09.26 (01시 15분)</span><a style="float: right;">주문내역 상세보기</a>
+                    </div> 
+                    <img src="https://img-cf.kurly.com/shop/data/goods/1605164418732l0.jpg" alt="[요플레] ONLY 3 플레인 요거트 대용량 1800mL 상품 이미지" class="order-item-thumb">
+                    <dl class="order-item-row">
+                      <dt class="order-item">상품명</dt>
+                      <dd class="order-data">[요플레] ONLY 3 플레인 요거트 대용량 1800mL 외 2건</dd>
+                    </dl>
+                    <dl class="order-item-row">
+                      <dt class="order-item">주문번호</dt>
+                      <dd class="order-data">2282501150018</dd>
+                    </dl>
+                      <dl class="order-item-row">
+                        <dt class="order-item">결제방법</dt>
+                        <dd class="order-data">네이버페이</dd>
+                      </dl><dl class="order-item-row">
+                        <dt class="order-item">결제금액</dt>
+                        <dd class="order-data">24,380원</dd>
+                      </dl>
+                    </div>
+                  </div>
+                  <div class="order-item-col2">
+                    <span class="order-item" >배송완료</span>
+                    <div class="button-cover">
+                      <button class="css-oyz24n e4nu7ef3" type="button" height="36" radius="3">
+                        <span class="css-ymwvow e4nu7ef1">1:1 문의</span>
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            
+            </div>
+          </div>
+
+          <div class="col-sm-2" style="background-color:lavender;">RIGHT</div>
+          </div>
+      </div>
+
+        
+    </div>    
+    
+    
+    <footer>
+      <p>footer</p>
+    </footer>
+  </body>
+</html>
