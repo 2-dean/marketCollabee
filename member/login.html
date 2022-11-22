@@ -60,33 +60,34 @@
         alert("> [로그인] 버튼 클릭 메인페이지로 이동");
       }
       function signup() {
-        alert("> [회원가입] 버튼 클릭 메인페이지로 이동");
+        alert("> [회원가입] 버튼 클릭");
+        location.href = ;
       }
 
     </script>
 </head>
-  <body>
+  <body style="width: 1800px;">
     <header>
       <p>header</p>
     </header>
     <div id="container">
         <div class="row">
-            <div class="col-sm-2" style="background-color:lavender;">LEFT</div>
-            <div class="col-sm-8" style="background-color:lavenderblush;">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
               <div id="container">
                   <h4 class="text-center" style="padding-bottom: 50px; color: #666666;">로그인</h4>
               </div>
 
                 <div class="form-group">
-                  <form action="">
+                  <form action="" method="post">
                     <div class="col-xs-8 col-xs-offset-4 text-center">
                       <div><input type="text" name="id" placeholder="아이디를 입력해주세요"></div>
                       <div><input type="password" name="password" placeholder="비밀번호를 입력해주세요"></div>
                     </div>
                     <div id="findArea" class="text-right" style="margin-bottom: 20px;">
-                      <a href="/03_findId.html" class="text-dark"><small>아이디 찾기</small></a>
+                      <a href="/member/findId.html" class="text-dark"><small>아이디 찾기</small></a>
                       <span class="text-dark"><small>|</small></span>
-                      <a href="/04_findPw.html" class="text-dark"><small>비밀번호 찾기</small></a>
+                      <a href="/member/findPw.html" class="text-dark"><small>비밀번호 찾기</small></a>
                     </div>
                     <div class="form-group">
                       <div class="text-center">
@@ -104,7 +105,7 @@
             </div>
 
             
-            <div class="col-sm-2" style="background-color:lavender;">RIGHT</div>
+            <div class="col-sm-2"></div>
         </div>
     </div>    
     

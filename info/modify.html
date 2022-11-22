@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>mypage 개인정보 수정- 마켓콜라비</title>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -12,17 +12,458 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<script>
+    function emoneyload() {
+        alert("적립금 페이지로 이동");
+    }
+    function couponload() {
+        alert("쿠폰 페이지로 이동");
+    }
+</script>    
+  <style>
+    .btn:active, .btn:focus {
+      outline:none !important;
+      box-shadow:none !important;
+    }
+
+    #mypage-cover{
+      padding-bottom: 50px;
+    }
+    #mypage-top {
+      padding-top: 50px;
+      margin: auto;
+      text-align: center;
+    }
+    .blank{
+        height: 30px;
+    }
+    .mypage-top2 {
+      height: 212px;
+      display: inline-block;
+      background-color: white;
+      margin-right:5px; /*마이페이지 윗 부분 메뉴 나눔*/
+      margin-bottom: 20px;
+      padding: 30px;
+    }
+    .mypage-top2 div {
+        margin-bottom: 10px;
+    }
+    .align-left { /*적립금, 쿠폰 텍스트 정렬*/
+      text-align: left;
+    }
+    .btn{
+      padding: 0px;
+    }
+    #allgrade, #nextgrade { /*등급 버튼*/
+      font-size: small;
+      font-weight: bold;
+      background-color:#F7F7F7;
+      border-radius: 30px;
+    }
+
+    .purple-bold {
+        color: #B03FE3;
+        font-size: x-large;
+        font-weight: bold;
+    }
+    #eventbn{ /**/
+      background-color: darkolivegreen;
+      width: 100%;
+      height: 60px;
+    }
+
+
+    /* mypage-bottom 네비바*/
+    /* 네비바 제목 */
+    h3 {
+      margin: 0px 0px 15px 5px;
+    }
+
+  .list-group-item a{
+      letter-spacing: -2px; 
+      text-decoration: none;
+      color:black;
+    }
+    .list-group-item:hover {
+      background-color: #FEF7FF;
+    }     
+    .list-group-item:hover > a {
+      font-weight: bold;
+      text-decoration: none;
+      color:#B03FE3;
+    }
+    .list-group-item:hover >span {
+      font-weight: bold;
+      text-decoration: none;
+      color:#B03FE3;
+    }
+    .list-group-item a {
+      width: 100%;
+      display: block;
+    }
+
+    li span{font-size: large;
+      font-weight: bold;
+      color: black;
+    }
+
+    h2{font-weight: bold;
+      letter-spacing: -2.5px;}
+    
+    h4{font-weight: bolder;
+        letter-spacing: -3px; 
+        word-spacing: 5px;
+      }
+    .order-list-continer{
+      border: 14px 0px 16px;
+      width: 100%;
+      display: flex;
+    }
+
+    .order-item-thumb {
+      float: left;
+    }
+    .order-item-col1 {
+      padding: 5px;
+      border: 3px solid purple;
+      width: 80%;
+    }
+    .order-item-col2 {
+      width: 20%;
+      border: 3px solid purple;
+      text-align: center;        
+    }
+    .order-item-col2 .order-item {
+      line-height: 150px;
+      vertical-align: middle;
+    }
+    .order-item-col2 .button-cover {
+      margin-top: -60px;
+    }
+    
+    /* 마이페이지 컨텐츠영역 */
+    .col-sm-6 {
+      padding: 15px;
+      padding-right: 40px;
+    }
+    .mypage-top3{
+      border-bottom: 2px solid black;
+    }
+    .mypage-top4{
+      padding: 50px 15px 15px 15px;
+    }
+
+    .modifyForm {
+      padding: 7px 60px 7px 120px;
+    }
+
+    /* 수정 폼 */
+    #text-right{
+        text-align: right;
+        width: 100%;     
+    }
+    .form-inline{
+        padding: 10px 20px;
+    }
+    .form-control{
+        height: 46px;
+        width: 100%;
+        padding: 0px 11px 1px 15px;
+    }
+    .form1 {
+        width: 139px;
+        text-align: left;
+    }
+    .form2 {
+        height: 46px;
+        width: 333px;
+    }
+    .form3 {
+        width: 120px;
+    }
+
+    .input-area {
+        margin-bottom: 5px;
+    }
+
+    .birthFrmGroup {
+      width: 96px;
+      height: 40px;
+      text-decoration: none;
+      border: none;
+    }
+
+    /* 유효성검사 */
+    .hide {
+        display: none;
+    }
+
+    .red-message {
+        font-size: small;
+        font-weight: bold;
+        color: red;
+    }
+
+     /* 중복확인 버튼 */
+     .chk-button{
+        width: 120px;
+        height: 44px;
+        background-color: white;
+        color:#692498 ;
+        border: 0.1px solid #692498;
+        border-radius: 5px;
+        padding: 0px 10px;
+        margin: 0px 0px 0px 8px;
+    }
+
+    /* 버튼 */
+    #purpleBtn {
+      background-color: #692498; 
+      color: white; 
+      width: 120px; 
+      height: 44px;
+    }
+    #whiteBtn {
+      background-color: white; 
+      border: 1px solid #692498;
+      color: #692498; 
+      width: 120px; 
+      height: 44px;
+    }
+
+</style>
+  
   </head>
-  <body>
+  <body style="width: 1800px;">
     <header>
       <p>header</p>
     </header>
     <div id="container">
-        <div class="row">
-            <div class="col-sm-2" style="background-color:lavender;">.col-sm-2</div>
-            <div class="col-sm-8" style="background-color:lavenderblush;">.col-sm-8</div>
-            <div class="col-sm-2" style="background-color:lavender;">.col-sm-2</div>
+        <div class="row" id="mypage-top">
+            <div class="col-sm-2" style="background-color:#F7F7F7;"></div> 
+            <div class="col-sm-8" style="background-color:#F7F7F7;">
+              <div id="mypage-cover" style="height: 392px;">
+                <div class="d-flex align-items-stretch" id="mypage-top">
+ 
+                  <div class="mypage-top2" style="width: 40%;">
+                    <div style="text-align: left;" id="user-grade" >
+                      <div style="display: inline-block; height: 48px; margin-right: 20px;">
+                        <img src="/static/icon_img/grade1.png" alt="그림" style="width: 48px; height: 48px;">
+                      </div>
+                      <div style="display: inline-block; width: 156px;">
+                        <span class="align-left" id="user-name"><b>000님</b></span>
+                      </div>
+                    </div>
+                      
+                    <div class="align-left" id="save-rate"  style="text-align: left;">적립 0.1%</div>
+                    <div id="membership-info-button" style="text-align: left; margin: auto;" >
+                      <button type="button" class="btn" id="allgrade" style="margin-right: 50px; width: 151px; height: 41px;" onclick="">전체등급 보기</button>
+                      <button type="button" class="btn" id="nextgrade"style="width: 151px; height: 41px;" onclick="">다음 달 예상등급 보기</button>
+                    </div>
+                  </div> 
+
+                  <div class="mypage-top2" style="width: 30%;">
+                      <button type="button" class="btn" style="width: 100%; height: 100%;" onclick="emoneyload()"> 
+                        <div style="padding-bottom: 25px;">
+                          <div class="align-left" style="margin-bottom: 10px;"><b>적립금></b></div>
+                          <div></div>
+                          <div class="align-left purple-bold">1,497원</div>
+                          <div class="align-left">소멸예정 0원</div>
+                        </div>
+                      </button>
+                  </div>
+
+                  <div class="mypage-top2" style="width: 30%; margin: 0;">
+                    <button type="button" class="btn" style="width: 100%; height: 100%;" onclick="couponload()">
+                      <div style="padding-bottom: 57px;">
+                        <div class="align-left" style="margin-bottom:10px;"><b>쿠폰></b></div>
+                        <div class="align-left purple-bold">1개</div>
+                      </div>
+                      <div></div>
+                    </button>
+                  </div>
+
+                </div>
+                <div id="eventbn">
+                    <img src="#" alt="이미지 배너">
+                </div>
+              
+              </div>
+              
+            </div> 
+            <div class="col-sm-2" style="background-color: #F7F7F7;"></div>
         </div>
+        <div class="blank"></div>
+        <div class="row" id="mypage-bottom">
+          <div class="col-sm-2"></div>
+          <!-- 네비메뉴 -->
+          <div class="col-sm-2" style="padding:15px; padding-left: 30px;">  
+            <div class="container-bottom-menu">
+              <h3 class="font-weight-bold">마이 콜라비</h3>
+              <div>
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/mypage/order.html">주문내역</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <a href="/mypage/picklist.html">찜한상품</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <a href="/mypage/review.html">상품후기</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/mypage/inquiry.html">상품문의</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/mypage/info.html">개인정보수정</a><span>></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- 마이페이지 콘텐츠 영역 -->
+          <div class="col-sm-6"> 
+            <div class="mypage-top3">
+                <div style="width: 100%; height: 50px;">
+                  <div id="category-name" style="display: inline-block;">
+                    <h4 style="margin-right: 20px;">개인 정보 수정</h4>
+                  </div>
+              </div>
+            </div>
+
+            <div class="mypage-top4" style="padding: 15px;">
+            
+              <div class="modifyForm"> 
+                <form name="signupfrm" action="" method="get"> <!--signup.do-->
+                  <div class="form-group form-inline">
+                      <div class="form1"><small><b>아이디</b></small><span class="text-danger">*</span></div>
+                      <div class="form2">
+                          <div class="input-area">
+                              <input type="text" class="form-control" id="id" name="id" required="required" placeholder="아이디를 입력해주세요" style="width: 333px;">
+                          </div>
+                      </div>
+                      <div class="form3"></div>
+                  </div>
+                  <div class="form-group form-inline">
+                    <div class="form1"><small><b>현재 비밀번호</small><span class="text-danger">*</span></div>                                
+                    <div class="form2">
+                        <input type="password" class="form-control" id="password" name="password" required="required" placeholder="비밀번호를 입력해주세요" style="width: 333px;">
+                    </div>
+                    <div class="form3"></div>    	
+                </div>
+                  <div class="form-group form-inline">
+                      <div class="form1"><small><b>새 비밀번호</small><span class="text-danger">*</span></div>                                
+                      <div class="form2">
+                          <input type="password" class="form-control" id="password2" name="password2" required="required" placeholder="비밀번호를 입력해주세요" style="width: 333px;">
+                      </div>
+                      <div class="form3"></div>    	
+                  </div>
+                  <div class="form-group form-inline">
+                      <div class="form1"><small><b>새 비밀번호확인</b></small><span class="text-danger">*</span></div>                                
+                      <div class="form2">
+                          <div>
+                              <input type="password" class="form-control" id="password3" name="password3" required="required" placeholder="비밀번호를 한번 더 입력해주세요" style="width: 333px;">
+                          </div>
+                          <div>
+                              <div class="mismatch-message hide red-message">비밀번호가 일치하지 않습니다</div>
+                              <div class="match-message hide" style="font-size: small; color: purple;">비밀번호가 일치합니다 ♡</div>
+                          </div>                                
+                      </div>	
+                      <div class="form3"></div> 
+                  </div>
+                  <div class="form-group form-inline">
+                      <div class="form1"><small><b>이름</b></small><span class="text-danger">*</span></div>
+                      <div class="form2"><input type="text" class="form-control" id="name" name="name" required="required" placeholder="이름을 입력해주세요" style="width: 333px;"></div>
+                      <div class="form3"></div> 
+                  </div>
+                  <div class="form-group form-inline">
+                      <div class="form1"><small><b>이메일</b></small><span class="text-danger">*</span></div>
+                      <div class="form2"><input type="text" class="form-control" id="email" name="email" required="required" placeholder="예:marketCollabee@collabee.com" style="width: 333px;"></div>
+                      <div class="form3" onclick="confirmEmail()"><button class="chk-button"><small><b>중복확인</b></small></button></div>
+                  </div>
+                  <div class="form-group form-inline">
+                      <div class="form1"><small><b>휴대폰</b></small><span class="text-danger">*</span></div>
+                      <div class="form2">
+                          <div>
+                              <input type="text" class="form-control" id="phone" name="phone" required="required" placeholder="숫자만 입력해주세요"  style="width: 333px;" onlyNumber>
+                          </div>
+                          <div>
+                              <div class="numberchk-message hide">휴대폰 번호를 입력해주세요</div>
+                          </div>
+                      </div>
+                      <div class="form3"></div> 
+                  </div>
+                  <div class="form-group form-inline">
+                      <div class="form1"><small><b>주소</b></small><span class="text-danger">*</span></div>
+                      <div class="form2"><input type="text" class="form-control" id="address" name="address" required="required" placeholder="" style="width: 333px;"></div>
+                      <div class="form3"></div> 
+                  </div>
+                  <div class="">
+                      <div class="form-group form-inline">
+                      <div class="form1"><small><b>성별</b></small></div>
+                          <div class="form2">
+                              <label class="form-check-label" style="width: 333px;">
+                                  <div class="genchk"><input type="radio" class="form-check-input" name="gender" value="male">남 자</div>
+                                  <div class="genchk"><input type="radio" class="form-check-input" name="gender" value="female">여 자</div>
+                                  <div class="genchk"><input type="radio" class="form-check-input" name="gender" value="no_select" checked>선택안함</div>
+                              </label>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group form-inline">
+                      <div class="form1"><small><b>생년월일</b></small></label></div>
+                      <div class="form2">
+
+                        <div class="d-flex align-content-between">
+                          <div class="">
+                            <div>
+                              <input data-testid="input-box" name="birthYear" placeholder="YYYY" type="text" class="birthFrmGroup" value="">
+                            </div>
+                          </div>
+                          <span class="bi-slash"></span>
+                          <div class="d-flex align-content-between">
+                            <div>
+                              <input data-testid="input-box" name="birthMonth" placeholder="MM" type="text" class="birthFrmGroup" value="">
+                            </div>
+                          </div>
+                          <span class="bi-slash"></span>
+                            <div class="css-1dkwuq4 e1uzxhvi6">
+                              <div>
+                                <input data-testid="input-box" name="birthDay" placeholder="DD" type="text" class="birthFrmGroup" value="">
+                              </div>
+                            </div>
+                        </div>
+
+                      </div>
+                      <div class="form3"></div>
+                  </div>
+                  <hr>
+
+                  <div class="form-group">
+                      <div style="display: inline-block;  width: 20%; text-align: center; border: 1px solid blue;">
+                          <small><b>이용약관동의</b></small>
+                      </div>
+                  </div>
+
+                  <div class="form-group">
+                      <div class="col-xs-8 col-xs-offset-4 text-center">
+                          <button type="button" onclick="signupChk()" class="btn text-center" id="whiteBtn"><b>탈퇴하기</b></button>
+                          <button type="button" onclick="signupChk()" class="btn text-center" id="purpleBtn"><b>회원정보수정</b></button>
+                        </div>  
+                  </div>
+
+              </form>
+              </div>              
+
+            </div>
+            
+          </div>
+          
+          <div class="col-sm-2"></div>
+          </div>
+          <div class="blank"></div>
+      </div>
+
         
     </div>    
     

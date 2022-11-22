@@ -22,9 +22,10 @@
 </script>    
   <style>
     .btn:active, .btn:focus {
-        outline:none !important;
-        box-shadow:none !important;
+      outline:none !important;
+      box-shadow:none !important;
     }
+
     #mypage-cover{
       padding-bottom: 50px;
     }
@@ -34,13 +35,14 @@
       text-align: center;
     }
     .blank{
-        height: 50px;
+        height: 30px;
     }
     .mypage-top2 {
       height: 212px;
       display: inline-block;
       background-color: white;
       margin-right:5px; /*마이페이지 윗 부분 메뉴 나눔*/
+      margin-bottom: 20px;
       padding: 30px;
     }
     .mypage-top2 div {
@@ -72,94 +74,99 @@
 
 
     /* mypage-bottom 네비바*/
-    .list-group-item a{
-        letter-spacing: -2px; 
-        text-decoration: none;
-        color:black;
-      }
-      .list-group-item:hover {
-        background-color: #FEF7FF;
-      }     
-      .list-group-item:hover > a {
-        font-weight: bold;
-        text-decoration: none;
-        color:#B03FE3;
-      }
-      .list-group-item:hover >span {
-        font-weight: bold;
-        text-decoration: none;
-        color:#B03FE3;
-      }
-      .list-group-item a {
-        width: 100%;
-        display: block;
-      }
+    /* 네비바 제목 */
+    h3 {
+      margin: 0px 0px 15px 5px;
+    }
 
-      li span{font-size: large;
-        font-weight: bold;
-        color: black;
-      }
+  .list-group-item a{
+      letter-spacing: -2px; 
+      text-decoration: none;
+      color:black;
+    }
+    .list-group-item:hover {
+      background-color: #FEF7FF;
+    }     
+    .list-group-item:hover > a {
+      font-weight: bold;
+      text-decoration: none;
+      color:#B03FE3;
+    }
+    .list-group-item:hover >span {
+      font-weight: bold;
+      text-decoration: none;
+      color:#B03FE3;
+    }
+    .list-group-item a {
+      width: 100%;
+      display: block;
+    }
 
-      h2{font-weight: bold;
-        letter-spacing: -2.5px;}
+    li span{font-size: large;
+      font-weight: bold;
+      color: black;
+    }
 
-      h4{font-weight: bolder;
-          letter-spacing: -3px; 
-          word-spacing: 5px;
-        }
-      .order-list-continer{
-        border: 14px 0px 16px;
-        width: 100%;
-        display: flex;
+    h2{font-weight: bold;
+      letter-spacing: -2.5px;}
+    
+    h4{font-weight: bolder;
+        letter-spacing: -3px; 
+        word-spacing: 5px;
       }
- 
-      .order-item-thumb {
-        float: left;
-      }
-      .order-item-col1 {
-        padding: 5px;
-        border: 3px solid purple;
-        width: 80%;
-      }
-      .order-item-col2 {
-        width: 20%;
-        border: 3px solid purple;
-        text-align: center;        
-      }
-      .order-item-col2 .order-item {
-        line-height: 150px;
-        vertical-align: middle;
-      }
-      .order-item-col2 .button-cover {
-        margin-top: -60px;
-      }
-     
-      /* 마이페이지 내용 바뀌는 곳 */
-      .col-sm-6 {
-        padding: 15px;
-        padding-right: 40px;
-      }
-      .mypage-top3{
-        border-bottom: 0.5px solid grey;
-      }
-      .mypage-top4{
-        padding: 50px 15px 15px 15px;
-      }
+    .order-list-continer{
+      border: 14px 0px 16px;
+      width: 100%;
+      display: flex;
+    }
+
+    .order-item-thumb {
+      float: left;
+    }
+    .order-item-col1 {
+      padding: 5px;
+      border: 3px solid purple;
+      width: 80%;
+    }
+    .order-item-col2 {
+      width: 20%;
+      border: 3px solid purple;
+      text-align: center;        
+    }
+    .order-item-col2 .order-item {
+      line-height: 150px;
+      vertical-align: middle;
+    }
+    .order-item-col2 .button-cover {
+      margin-top: -60px;
+    }
+    
+    /* 마이페이지 컨텐츠영역 */
+    .col-sm-6 {
+      padding: 15px;
+      padding-right: 40px;
+    }
+    .mypage-top3{
+      border-bottom: 2px solid black;
+    }
+    .mypage-top4{
+      padding: 50px 15px 15px 15px;
+    }
 </style>
   
   </head>
-  <body>
+  <body style="width: 1800px;">
     <header>
       <p>header</p>
     </header>
     <div id="container">
         <div class="row" id="mypage-top">
-            <div class="col-sm-2" style="background-color:#F7F7F7;">LEFT</div> 
+            <div class="col-sm-2" style="background-color:#F7F7F7;"></div> 
             <div class="col-sm-8" style="background-color:#F7F7F7;">
               <div id="mypage-cover" style="height: 392px;">
                 <div class="d-flex align-items-stretch" id="mypage-top">
  
-                  <div class="mypage-top2" style="width: 40%; height: 218px; padding: 30px;">
+                  <div class="mypage-top2" style="width: 40%;">
                     <div style="text-align: left;" id="user-grade" >
                       <div style="display: inline-block; height: 48px; margin-right: 20px;">
                         <img src="/static/icon_img/grade1.png" alt="그림" style="width: 48px; height: 48px;">
@@ -205,35 +212,38 @@
               </div>
               
             </div> 
-            <div class="col-sm-2" style="background-color: #F7F7F7;">RIGHT</div>
+            <div class="col-sm-2" style="background-color: #F7F7F7;"></div>
         </div>
         <div class="blank"></div>
         <div class="row" id="mypage-bottom">
-          <div class="col-sm-2" style="background-color:lavender;">LEFT</div>
-          
-          <div class="col-sm-2" style="padding:15px; padding-left: 30px;"> <!-- 메뉴 -->
+          <div class="col-sm-2"></div>
+          <!-- 네비메뉴 -->
+          <div class="col-sm-2" style="padding:15px; padding-left: 30px;">  
             <div class="container-bottom-menu">
-              <h3 class="font-weight-bold">마이콜라비</h3>
-              <br>
+              <h3 class="font-weight-bold">마이 콜라비</h3>
               <div>
                 <ul class="list-group">
                   <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="" >공지사항</a>
-                    <span>></span>
+                    <a href="/mypage/order.html">주문내역</a><span>></span>
                   </li>
-                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                      <a href="">자주하는 질문</a>
-                    <span>></span>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <a href="/mypage/picklist.html">찜한상품</a><span>></span>
                   </li>
-                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                      <a href="">1:1 문의</a>
-                    <span>></span>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <a href="/mypage/review.html">상품후기</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/mypage/inquiry.html">상품문의</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/mypage/info.html">개인정보수정</a><span>></span>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
-          <div class="col-sm-6"> <!-- 마이페이지 콘텐츠 -->
+          <!-- 마이페이지 콘텐츠 영역 -->
+          <div class="col-sm-6"> 
             <div class="mypage-top3">
                 <div style="width: 100%; height: 50px;">
                   <div id="category-name" style="display: inline-block;">
@@ -250,7 +260,7 @@
             
           </div>
           
-          <div class="col-sm-2" style="background-color:lavender;">RIGHT</div>
+          <div class="col-sm-2"></div>
           </div>
           <div class="blank"></div>
       </div>
