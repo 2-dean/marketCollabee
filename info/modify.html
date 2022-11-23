@@ -13,14 +13,55 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <script>
-    function emoneyload() {
-        alert("적립금 페이지로 이동");
-    }
-    function couponload() {
-        alert("쿠폰 페이지로 이동");
-    }
+  function emoneyload() {
+    alert("적립금 페이지로 이동");
+  }
+  function couponload() {
+    alert("쿠폰 페이지로 이동");
+    // location.href="/mypage"
+  }
 </script>    
-  <style>
+
+<script>
+  //
+  function requestLeave(){
+    alert("탈퇴 페이지로 이동");
+    location.href="/mypage/leave.html"
+  }
+
+ // 데이터 유효성 검사 및 데이터 전송
+  function mdfyMember () {
+    alert("수정완료 버튼클릭");
+    // 데이터 유효성검사
+    
+    //비밀번호 유효성검사
+    /*
+    var passwordReg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
+    
+    if (!passwordReg.test(password2.value)) {
+        alert("비밀번호는 영문자+숫자+특수문자 조합으로 8~15자리 사용해야 합니다.");
+        pwd.focus();
+        return false;
+    };
+    */
+    if (password2.value != password3.value) {
+        alert("비밀번호가 다릅니다");
+        password3.focus();
+        return false;
+    }
+    
+    // 이름 유효성검사
+    
+
+    
+    // DB에 데이터 수정하고 결과 받아서 알려주기
+    // document.modifyForm.action = "";
+    document.modifyForm.submit();
+  }
+
+</script>
+
+<style>
     .btn:active, .btn:focus {
       outline:none !important;
       box-shadow:none !important;
@@ -158,6 +199,14 @@
     }
 
     /* 수정 폼 */
+    .form2 input:focus {
+      /* border: 1px solid #692498;
+      border-radius: 5px;
+      padding: 2px 5px; */
+      outline: none;
+   
+    }
+
     #text-right{
         text-align: right;
         width: 100%;     
@@ -206,17 +255,37 @@
 
      /* 중복확인 버튼 */
      .chk-button{
-        width: 120px;
-        height: 44px;
-        background-color: white;
-        color:#692498 ;
-        border: 0.1px solid #692498;
-        border-radius: 5px;
-        padding: 0px 10px;
-        margin: 0px 0px 0px 8px;
+      width: 120px;
+      height: 44px;
+      background-color: white;
+      color:#692498 ;
+      border: 0.1px solid #692498;
+      border-radius: 5px;
+      padding: 0px 10px;
+      margin: 0px 0px 0px 8px;
     }
 
-    /* 버튼 */
+    /* 성별체크 라디오 */
+    .genchk{
+      width: 65px;
+      margin: 12px;
+    }
+
+    .form-check-label{
+      font-size: small;
+      font-weight: 200;
+      letter-spacing: -1px;
+    }
+
+    .birthFrmGroup {
+      text-align: center;
+
+    }
+    .bi-slash-lg {
+      line-height: 40px;
+      vertical-align: middle;
+    }
+      /* 버튼 */
     #purpleBtn {
       background-color: #692498; 
       color: white; 
@@ -334,12 +403,12 @@
             <div class="mypage-top4" style="padding: 15px;">
             
               <div class="modifyForm"> 
-                <form name="signupfrm" action="" method="get"> <!--signup.do-->
+                <form name="modifyForm" action="" method="get"> <!--signup.do-->
                   <div class="form-group form-inline">
                       <div class="form1"><small><b>아이디</b></small><span class="text-danger">*</span></div>
                       <div class="form2">
                           <div class="input-area">
-                              <input type="text" class="form-control" id="id" name="id" required="required" placeholder="아이디를 입력해주세요" style="width: 333px;">
+                              <input type="text" readonly class="form-control-plaintext purple-border" id="id" name="id" value="사용자 아이디" style="width: 333px; padding: 9px 0px 6px 0px; font-weight: bold;">
                           </div>
                       </div>
                       <div class="form3"></div>
@@ -347,7 +416,7 @@
                   <div class="form-group form-inline">
                     <div class="form1"><small><b>현재 비밀번호</small><span class="text-danger">*</span></div>                                
                     <div class="form2">
-                        <input type="password" class="form-control" id="password" name="password" required="required" placeholder="비밀번호를 입력해주세요" style="width: 333px;">
+                        <input type="password" class="form-control purple-border" id="password" name="password" required="required" placeholder="비밀번호를 입력해주세요" style="width: 333px;">
                     </div>
                     <div class="form3"></div>    	
                 </div>
@@ -412,7 +481,7 @@
                   </div>
                   <div class="form-group form-inline">
                       <div class="form1"><small><b>생년월일</b></small></label></div>
-                      <div class="form2">
+                      <div class="form2" style="border: 1px solid lightgray; border-radius: 5px;">
 
                         <div class="d-flex align-content-between">
                           <div class="">
@@ -420,13 +489,13 @@
                               <input data-testid="input-box" name="birthYear" placeholder="YYYY" type="text" class="birthFrmGroup" value="">
                             </div>
                           </div>
-                          <span class="bi-slash"></span>
+                          <div><span class="bi-slash-lg"></span></div>
                           <div class="d-flex align-content-between">
                             <div>
                               <input data-testid="input-box" name="birthMonth" placeholder="MM" type="text" class="birthFrmGroup" value="">
                             </div>
                           </div>
-                          <span class="bi-slash"></span>
+                            <div><span class="bi-slash-lg"></span></div>
                             <div class="css-1dkwuq4 e1uzxhvi6">
                               <div>
                                 <input data-testid="input-box" name="birthDay" placeholder="DD" type="text" class="birthFrmGroup" value="">
@@ -440,15 +509,9 @@
                   <hr>
 
                   <div class="form-group">
-                      <div style="display: inline-block;  width: 20%; text-align: center; border: 1px solid blue;">
-                          <small><b>이용약관동의</b></small>
-                      </div>
-                  </div>
-
-                  <div class="form-group">
                       <div class="col-xs-8 col-xs-offset-4 text-center">
-                          <button type="button" onclick="signupChk()" class="btn text-center" id="whiteBtn"><b>탈퇴하기</b></button>
-                          <button type="button" onclick="signupChk()" class="btn text-center" id="purpleBtn"><b>회원정보수정</b></button>
+                          <button type="button" onclick="requestLeave()" class="btn text-center" id="whiteBtn"><small><b>탈퇴하기</b></small></button>
+                          <button type="button" onclick="mdfyMember()" class="btn text-center" id="purpleBtn"><small><b>회원정보수정</b></small></button>
                         </div>  
                   </div>
 

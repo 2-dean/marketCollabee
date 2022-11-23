@@ -1,103 +1,421 @@
 <!DOCTYPE html>
-<html>
+<html lang="kor">
   <head>
-    <meta charset="utf-8" />
-    <title>고객센터-공지사항</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
-    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mypage 적립금- 마켓콜라비</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<script>
+    function emoneyload() {
+      alert("적립금 페이지로 이동");
+    }
+    function couponload() {
+      alert("쿠폰 페이지로 이동");
+    }
+    function bannerClick() {
+      alert("이벤트 페이지로 이동");
+    }
+</script>    
 
-      .list-group-item a{
-        letter-spacing: -2px; 
-        text-decoration: none;
-        color:black;
-      }
-      .list-group-item:hover {
-        background-color: #FEF7FF;
-      }     
-      .list-group-item:hover >a {
+
+  <style>
+    .btn:active, .btn:focus {
+      outline:none !important;
+      box-shadow:none !important;
+    }
+
+    #mypage-cover{
+      padding-bottom: 50px;
+    }
+    #mypage-top {
+      padding-top: 50px;
+      margin: auto;
+      text-align: center;
+    }
+    .blank{
+        height: 30px;
+    }
+    .mypage-top2 {
+      height: 212px;
+      display: inline-block;
+      background-color: white;
+      margin-right:5px; /*마이페이지 윗 부분 메뉴 나눔*/
+      margin-bottom: 20px;
+      padding: 30px;
+    }
+    .mypage-top2 div {
+        margin-bottom: 10px;
+    }
+    .align-left { /*적립금, 쿠폰 텍스트 정렬*/
+      text-align: left;
+    }
+    .btn{
+      padding: 0px;
+    }
+    #allgrade, #nextgrade { /*등급 버튼*/
+      font-size: small;
+      font-weight: bold;
+      background-color:#F7F7F7;
+      border-radius: 30px;
+    }
+
+    .purple-bold {
+        color: #B03FE3;
+        font-size: x-large;
         font-weight: bold;
-        text-decoration: none;
-        color:#B03FE3;
-      }
-      .list-group-item:hover >span {
-        font-weight: bold;
-        text-decoration: none;
-        color:#B03FE3;
-      }
-      .list-group-item a {
-        width: 100%;
-        display: block;
-      }
-
-      li span{font-size: large;
-        font-weight: bold;
-        color: black;
-      }
-
-      h2{font-weight: bold;
-        letter-spacing: -2.5px;}
-
-      h4{font-weight: bolder;
-          letter-spacing: -3px; 
-          word-spacing: 5px;
-        }
-        
-      h4 span{letter-spacing: -1px;
-        word-spacing: 2px;
-        vertical-align: middle;
-        font-size: small; color: gray;
-      }
-      .main{
-        padding-bottom: 24px;
-        padding-top: 10px ;
-      }
+    }
+    #eventbn{ /**/
+      background-color: darkolivegreen;
+      width: 100%;
+      height: 60px;
+    }
 
 
-</style>  
-    </style>
-  </head>
-  <body>
-    <div class="container-fluid">
-      <br><br><br>
-      <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-2">
-          <h2>고객센터</h2>
-          <br>
-          <div>
-            <ul class="list-group">
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <a href="" width="100%">공지사항</a>
-                <span>></span>
-              </li>
-                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <a href="">자주하는 질문</a>
-                <span>></span>
-              </li>
-                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                  <a href="">1:1 문의</a>
-                <span>></span>
-              </li>
-            </ul>
-          </div>
+    /* mypage-bottom 네비바*/
+    /* 네비바 제목 */
+    h3 {
+      margin: 0px 0px 15px 5px;
+    }
 
-        </div>
-        <div class="col-sm-6">
-            <div class="main" style="border-bottom:2px solid black";>
-                <h4>공지사항 
-                <span> 콜라비의 새로운 소식들과 유용한 정보들을 한곳에서 확인하세요</span>
-                </h4>
-            </div>
-              <div class="col-sm-2"></div>
-            </div>
-          </div>
-      </div>    
-    </body>
-    </html>
+    .list-group-item a{
+      letter-spacing: -2px; 
+      text-decoration: none;
+      color:black;
+    }
+    .list-group-item:hover {
+      background-color: #FEF7FF;
+    }     
+    .list-group-item:hover > a {
+      font-weight: bold;
+      text-decoration: none;
+      color:#B03FE3;
+    }
+    .list-group-item:hover >span {
+      font-weight: bold;
+      text-decoration: none;
+      color:#B03FE3;
+    }
+    .list-group-item a {
+      width: 100%;
+      display: block;
+    }
+
+    li span{font-size: large;
+      font-weight: bold;
+      color: black;
+    }
+
+    h2{font-weight: bold;
+      letter-spacing: -2.5px;}
+    
+    h4{font-weight: bolder;
+        letter-spacing: -3px; 
+        word-spacing: 5px;
+      }
+    .order-list-continer{
+      border: 14px 0px 16px;
+      width: 100%;
+      display: flex;
+    }
+
+    .order-item-thumb {
+      float: left;
+    }
+    .order-item-col1 {
+      padding: 5px;
+      border: 3px solid purple;
+      width: 80%;
+    }
+    .order-item-col2 {
+      width: 20%;
+      border: 3px solid purple;
+      text-align: center;        
+    }
+    .order-item-col2 .order-item {
+      line-height: 150px;
+      vertical-align: middle;
+    }
+    .order-item-col2 .button-cover {
+      margin-top: -60px;
+    }
+    
+    /* 마이페이지 컨텐츠영역 */
+    .col-sm-6 {
+      padding: 15px;
+      padding-right: 40px;
+    }
+    .mypage-top3{
+      border-bottom: 2px solid black;
+    }
+    .mypage-top4{
+      padding: 50px 15px 15px 15px;
+    }
+
+    /* 현재적립금 */
+    dl {
+      width: 410px;
+      height: 100px;
+      padding: 34px 50px 36px;
+      border: 1px solid lightgrey;
+    }
+    dl:first-child {
+      margin-right: 10px;
+    }
+    dt {
+      text-align: left;
+      font-size: small;
+      font-weight: bold;
+      margin-top: 3px;
+    }
+    dd {
+      text-align: left;
+      font-size: medium;
+      font-weight: bold;
+      margin-left: 120px;
+    }
+
+   /* 적립금 히스토리  */
+    .emoney-col {
+      text-align: center; 
+      padding: 20px 0px; 
+      border-top: 2px solid black;
+      border-bottom: 1px solid black;
+    }
+    .emoney-row {
+      text-align: center; 
+      padding: 20px 0px; 
+      border-bottom: 1px solid lightgray;
+    }
+    .emoney-col> div {
+      font-weight: bold;
+      font-size: small;
+      letter-spacing: -1px;
+    }
   
+    /* 날짜 */
+    .reg-date { 
+      width: 119px;
+    }
+    /* 내용 */
+    .detail {
+      width: 437px; text-align: left; padding-left: 20px;
+    }
+    /* 유효기한 */
+    .expire-date {
+      width: 121px;
+    }
+    /* 금액 */
+    .point {
+      width: 139px;
+      font-weight: bold;
+    }
+    
+    /* 포인트 금액별 색상 */
+    .plusPoint {
+      color: #692498;
+    }
+    .minusPoint {
+      color:  #666666;
+    }
+
+    /* 페이징 영역 */
+    .pagination {
+      text-align: center;    
+      margin-top: 60px;
+    }
+
+    .paginationBtn {
+      background-color: white;
+      border: 1px solid lightgray;
+      width: 33px !important;
+      height: 32px ;
+    }
+    .paginationBtn > i {
+      font-size: small;
+      font-weight: bold;
+      color: gray;
+    }
+    .paginationBtn:hover {
+      background-color: #FEF7FF;
+    }
+  
+
+
+</style>
+  
+  </head>
+  <body style="width: 1800px;">
+    <header>
+      <p>header</p>
+    </header>
+    <div id="container">
+        <div class="row" id="mypage-top">
+            <div class="col-sm-2" style="background-color:#F7F7F7;"></div> 
+            <div class="col-sm-8" style="background-color:#F7F7F7;">
+              <div id="mypage-cover" style="height: 392px;">
+                <div class="d-flex align-items-stretch" id="mypage-top">
+ 
+                  <div class="mypage-top2" style="width: 40%;">
+                    <div style="text-align: left;" id="user-grade" >
+                      <div style="display: inline-block; height: 48px; margin-right: 20px;">
+                        <img src="/static/icon_img/grade1.png" alt="그림" style="width: 48px; height: 48px;">
+                      </div>
+                      <div style="display: inline-block; width: 156px;">
+                        <span class="align-left" id="user-name"><b>000님</b></span>
+                      </div>
+                    </div>
+                      
+                    <div class="align-left" id="save-rate"  style="text-align: left;">적립 0.1%</div>
+                    <div id="membership-info-button" style="text-align: left; margin: auto;" >
+                      <button type="button" class="btn" id="allgrade" style="margin-right: 50px; width: 151px; height: 41px;" onclick="">전체등급 보기</button>
+                      <button type="button" class="btn" id="nextgrade"style="width: 151px; height: 41px;" onclick="">다음 달 예상등급 보기</button>
+                    </div>
+                  </div> 
+
+                  <div class="mypage-top2" style="width: 30%;">
+                      <button type="button" class="btn" style="width: 100%; height: 100%;" onclick="emoneyload()"> 
+                        <div style="padding-bottom: 25px;">
+                          <div class="align-left" style="margin-bottom: 10px;"><b>적립금></b></div>
+                          <div></div>
+                          <div class="align-left purple-bold">1,497원</div>
+                          <div class="align-left">소멸예정 0원</div>
+                        </div>
+                      </button>
+                  </div>
+
+                  <div class="mypage-top2" style="width: 30%; margin: 0;">
+                    <button type="button" class="btn" style="width: 100%; height: 100%;" onclick="couponload()">
+                      <div style="padding-bottom: 57px;">
+                        <div class="align-left" style="margin-bottom:10px;"><b>쿠폰></b></div>
+                        <div class="align-left purple-bold">1개</div>
+                      </div>
+                      <div></div>
+                    </button>
+                  </div>
+
+                </div>
+                <div id="eventbn">
+                  <img src="/static/event.jpg" alt="이미지 배너" onclick="bannerClick()" style="width: 100%; height: 60px; margin: 0px;">
+                </div>
+              
+              </div>
+              
+            </div> 
+            <div class="col-sm-2" style="background-color: #F7F7F7;"></div>
+        </div>
+        <div class="blank"></div>
+        <div class="row" id="mypage-bottom">
+          <div class="col-sm-2"></div>
+          <!-- 네비메뉴 -->
+          <div class="col-sm-2" style="padding:15px; padding-left: 30px;">  
+            <div class="container-bottom-menu">
+              <h3 class="font-weight-bold">마이 콜라비</h3>
+              <div>
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/mypage/order.html">주문내역</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <a href="/mypage/picklist.html">찜한상품</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <a href="/mypage/review.html">상품후기</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/mypage/inquiry.html">상품문의</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/mypage/info.html">개인정보수정</a><span>></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- 마이페이지 콘텐츠 영역 -->
+          <div class="col-sm-6"> 
+            <div class="mypage-top3">
+                <div style="width: 100%; height: 50px;">
+                  <div id="category-name" style="display: inline-block;">
+                    <h4 style="margin-right: 20px;">적립금</h4>
+                  </div>
+                  <div style="display: inline; line-height: 38px; vertical-align: bottom;"><small>보유하고 계신 적립금의 내역을 한 눈에 확인 하실 수 있습니다.</small></div>
+              </div>
+            </div>
+            <div class="mypage-top4" style="padding: 15px;">
+               
+              <section class="d-flex">
+                <dl class="d-flex">
+                  <dt class="label plusPoint">현재 적립금</dt>
+                  <dd class="price plusPoint">1,497<span class="unit">원</span></dd>
+                </dl>
+                <dl class="d-flex">
+                  <dt class="label">소멸예정 적립금</dt>
+                  <dd class="price minusPoint font-weight-bold">1,497<span class="unit">원</span></dd>
+                </dl>
+              </section>
+              <section>
+                <div class="d-flex emoney-col">
+                  <div class="reg-date">날짜</div>
+                  <div class="detail">내용</div>
+                  <div class="expire-date">유효기간</div>
+                  <div class="point">금액</div>
+                </div>
+                <ul style="padding: 0px;">
+                  <!-- 데이터 있는만큼 반복 페이지당 10개-->     
+                  <li class="d-flex emoney-row">
+                    <div class="reg-date">22.09.28</div>
+                    <div class="detail" style="letter-spacing: -0.5px;">[구매적립] 주문(2282501150018) 7% 적립</div>
+                    <div class="expire-date">23.09.30</div>
+                    <div class="point">+1,497 원</div>
+                  </li>
+                  <!-- 반복 끝-->
+                </ul>
+                
+                <!--페이징처리-->
+                  <ul class="pagination" style="margin-left: 300px">
+                    <li class="pagination-first">
+                      <button class="paginationBtn"><i class="bi bi-chevron-double-left"></i></button>
+                    </li>
+                    <li class="pagination-prev">
+                        <button class="paginationBtn"><i class="bi bi-chevron-left"></i></button>
+                    </li>
+                    <li class="pagnation-pageNum">
+                      <button class="paginationBtn"><div>1</div></button>
+                    </li>
+                    <li class="pagnation-pageNum">
+                      <button class="paginationBtn"><div>2</div></button>
+                    </li>
+                    <li class="pagination-next">
+                      <button class="paginationBtn"><i class="bi bi-chevron-right"></i></button>
+                    </li>
+                    <li class="pagination-last">
+                      <button class="paginationBtn"><i class="bi bi-chevron-double-right"></i></button>
+                    </li>
+                  </ul>
+  
+              </section>
+            </div>
+            
+          </div>
+          
+          <div class="col-sm-2"></div>
+          </div>
+          <div class="blank"></div>
+      </div>
+
+        
+    </div>    
+    
+    
+    <footer>
+      <p>footer</p>
+    </footer>
+  </body>
+</html>

@@ -24,6 +24,7 @@
             var phone = document.getElementById("phone");
             var address = document.getElementById("address");
             var agree1 = document.getElementById("agree1");
+            var signupfrm = document.querySelector("signupfrm");
         
             // 아이디 성공, 실패 메시지
             let failuremessage = document.querySelector('.failure-message');
@@ -110,6 +111,8 @@
         function signupChk() { 
             //alert("회원가입 버튼클릭"); 
             console.log("id : " + id.value);
+            console.log("from 데이터 : " + signupfrm.value);
+
             if (id.value == "") { //해당 입력값이 없을 경우 같은말: if(!uid.value)
                 alert("아이디를 입력하세요.");
                 id.focus(); //focus(): 커서가 깜빡이는 현상, blur(): 커서가 사라지는 현상
@@ -125,9 +128,9 @@
             
             //비밀번호 영문자+숫자+특수조합(8~25자리 입력) 정규식
             /*
-            var password2 = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
+            var passwordReg = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,15}$/;
             
-            if (!password2.test(password.value)) {
+            if (!passwordReg.test(password.value)) {
                 alert("비밀번호는 영문자+숫자+특수문자 조합으로 8~15자리 사용해야 합니다.");
                 pwd.focus();
                 return false;
@@ -179,7 +182,7 @@
             }
 
             //입력 값 전송
-            document.signupfrm.submit(); 
+            // document.signupfrm.submit(); 
             
         }
 
@@ -269,7 +272,6 @@
     }
 
     .chk:checked + .circle{
-        color: #692498;
         background-image: url(/static/icon_img/check-circle-fill.svg);
     }
     .allchk:checked + .circle{
