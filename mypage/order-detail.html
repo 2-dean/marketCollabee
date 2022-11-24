@@ -24,13 +24,25 @@
     function inquiry() {
       alert("1:1문의  페이지로 이동");
     }
+</script>
 
-    function
-</script>    
+<script>
+  //페이지 함수
+  function reAdd() {
+    alert("장바구니에 다시 담기 클릭");
+  }
+  function allReAdd() {
+    alert("전체상품 장바구니에 다시 담기 클릭");
+  }
+  function orderCancel() {
+    alert("주문취소 클릭");
+  }
+
+</script>
   <style>
     .btn:active, .btn:focus {
-        outline:none !important;
-        box-shadow:none !important;
+      outline:none !important;
+      box-shadow:none !important;
     }
     #mypage-cover{
       padding-bottom: 50px;
@@ -85,7 +97,7 @@
       margin: 0px 0px 15px 5px;
     }
 
-  .list-group-item a{
+   .list-group-item a{
       letter-spacing: -2px; 
       text-decoration: none;
       color:black;
@@ -117,7 +129,7 @@
       letter-spacing: -2.5px;}
     
     h4{font-weight: bolder;
-        letter-spacing: -3px; 
+        letter-spacing: -2px; 
         word-spacing: 5px;
       }
 
@@ -133,37 +145,46 @@
       border-bottom: 2px solid black;
     }
     .mypage-top4{
-      padding: 16px 0px;
+      padding: 0px;
       /* padding: 20px 0px 15px 0px; */
     }
 
     .orderNumArea {
-      margin-right: 20px; font-size: large; font-weight: bold;
+      margin-right: 20px; 
     }
     /* 마이페이지 컨텐츠 css*/
 
     .order-list-continer {
       width: 820px;
-      height: 210px;
-      padding: 16px 0px;
+      height: 127px;
+      padding:24px 0px;
       border: 14px 0px 16px;
-      margin-bottom: 14px;
+      margin: 0px 20px;
+      border-bottom: 1px solid lightgrey;
     }
     .bold {
       font-weight: bold;
     }
-    img {
-      width: 60px;
-      height: 78px;
-      margin : 10px 10px 50px 10px ;
-    }
+
+    /* 1:1 문의하기 */
+    #inquiryLink {
+      float: right; 
+      margin-right: -10px; 
+      margin-top: -40px;
+    } 
+    /* 상품썸네일*/ 
     .order-item-thumb {
       float: left;
     }
+    img {
+      width: 60px;
+      height: 78px;
+      margin-right: 20px; 
+    }
 
-    /* 주문일자 + 상세내역 */
+    /* 구매 제품 박스 영역*/
     .order-item-date {
-      width: 780px;
+      width: 860px;
       border-bottom: 0.5px solid grey;
       padding: 8px 0px 13px;
     }
@@ -173,42 +194,113 @@
       font-weight: bold;
       text-decoration: none;
     }
+
+    /* 상품 설명 */
     dl {
-      width: 520px;
+      width: 630px;
     }
     dt {
       font-size: small;
-      float: left;
       padding: 5px;
-      width: 80px;
-    }
-    dd {
-      font-size: 0.9em;
-    }
-
-    .order-data {
-      width: 520px;
-      padding: 5px;
-      margin-bottom: 0px;
     }
     .order-item-info {
       text-align: left;
       margin-bottom: 0px;
     }
 
-    .order-item-status { 
-      width: 100px;
-      margin-top:50px;
+    .order-item-name{
+      padding-top: 15px;
     }
 
-    .borderbtn {
+    /* 장바구니에 담기 영역*/
+    .order-item-status {
+      width: 100px;
+      margin-top: 25px;
+    }
+    .order-item-addCart {
+      width: 100px;
+      margin-top: 20px;
+    }
+
+      /* 버튼 */
+    .purpleBtn {
+      background-color: #692498; 
+      color: white; 
+      width: 96px; 
+      height: 36px;
+      font-size: small;
+    }
+
+    /* 주문정보영역 */
+
+    .whiteBtn {
       background-color: white; 
       color: #692498; 
-      border:0.5px solid #692498; 
-      width: 100px; 
-      height: 36px;
+      border: 1px solid #692498;
+      width: 180px; 
+      height: 56px;
+      font-size: small;
+    }
+    .greyBtn {
+      background-color: white; 
+      color: lightgray; 
+      border: 1px solid lightgray;
+      width: 180px; 
+      height: 56px;
+      font-size: small;
+    }
+    h5 {
+      margin: 0px;
+      padding-bottom: 20px;
+    }
+    ul {
+      padding: 0px;
+    }
+    li {
+      list-style: none;
+      padding-top: 20px;
+    }
+    li > span {
+      font-size: small;
     }
 
+    /* 장바구니 담기/주문취소 버튼영역 */
+    .allAddCancle {
+      text-align: center;
+      margin: 40px 0px;
+    }
+    .notice {
+      margin-bottom: 60px;
+      text-align: center;
+      font-size: small;
+      color: #666666;
+    }
+    
+    .infoTitle{
+      font-weight: bold;
+      padding-bottom: 20px;
+      border-bottom: 2px solid black;
+    }
+    .infoContent {
+      padding-bottom: 30px;
+      border-bottom: 1px solid lightgrey;
+      margin-bottom: 60px;
+    }
+    .title1 {
+      display: inline-block;
+      width: 700px;
+      color: #666666;
+    } 
+    .title1 ~ .content {
+      display: inline-block;
+      width: 150px;
+      text-align: right;
+    }
+    .title2 {
+      display: inline-block;
+      width: 190px;
+      color: #666666;
+    }  
 </style>
   
   </head>
@@ -220,6 +312,7 @@
         <div class="row" id="mypage-top">
             <div class="col-sm-2" style="background-color:#F7F7F7;"></div> 
             <div class="col-sm-8" style="background-color:#F7F7F7;">
+              
               <div id="mypage-cover" style="height: 392px;">
                 <div class="d-flex align-items-stretch" id="mypage-top">
  
@@ -272,6 +365,7 @@
             <div class="col-sm-2" style="background-color: #F7F7F7;"></div>
         </div>
         <div class="blank"></div>
+
         <div class="row" id="mypage-bottom">
           <div class="col-sm-2"></div>
           <!-- 네비메뉴 -->
@@ -298,60 +392,142 @@
           </div>
           <!-- 마이페이지 콘텐츠 영역 -->
           <div class="col-sm-6"> 
+            
             <div class="mypage-top3">
                 <div style="width: 100%; height: 50px;">
                   <div id="category-name" style="display: inline-block;">
-                    <h4 style="margin-right: 20px; margin-bottom: 20px; ">주문 내역 상세</h4>
+                    <h4 style="margin-right: 20px; margin-bottom: 35px; ">주문 내역 상세</h4>
                   </div>
-                  <div class="orderNumArea">주문번호 2282501150018</div>
+                  <div class="orderNumArea"><h5 class="font-weight-bold">주문번호 2282501150018</h5><a id="inquiryLink" onclick="inquiry()">1:1문의 하기 ></a></div>
               </div>
             </div>
 
             <div class="mypage-top4">
                
-              <div class="order-list-continer">
-                <!-- DB 에서 LIST 불러와서 반복문 적용 -->
-
-                <div class="">
-                  <div class="order-item-row1">
-                      <div class="order-item-date">
-                        <span class="order-data bold">2022.09.26 (01시 15분)</span><a style="float: right;">주문내역 상세보기</a>
-                      </div>
-                  </div>
-
-                  <div class="d-flex align-content-between order-item-row2">
+              
+              <!-- DB 에서 LIST 불러와서 반복문 적용 -->
+              <div class="order-list-continer d-flex align-content-between">
                     <div class="order-item">
                       <img src="https://img-cf.kurly.com/shop/data/goods/1605164418732l0.jpg" alt="[요플레] ONLY 3 플레인 요거트 대용량 1800mL 상품 이미지" class="order-item-thumb">
                       <dl class="order-item-info">
-                        <dt class="order-item">상품명</dt>
-                        <dd class="order-data">[요플레] ONLY 3 플레인 요거트 대용량 1800mL 외 2건</dd>
+                        <dt class="order-item-name">[요플레] ONLY 3 플레인 요거트 대용량 1800mL 외 2건</dt>
                       </dl>
                       <dl class="order-item-info">
-                        <dt class="order-item">주문번호</dt>
-                        <dd class="order-data">2282501150018</dd>
-                      </dl>
-                      <dl class="order-item-info">
-                        <dt class="order-item">결제방법</dt>
-                        <dd class="order-data">네이버페이</dd>
-                      </dl>
-                      <dl class="order-item-info">
-                        <dt class="order-item">결제금액</dt>
-                        <dd class="order-data">24,380원</dd>
+                        <dt class="order-item-price">24,380원 | 8개</dt>
                       </dl>
                     </div>
-                    <div style="width: 150px;"></div>
-                    <div class="order-item-status">
-                      <div style="width: 100px; text-align: center;" >배송완료</div>
-                      <div class="button-cover">
-                        <button type="button" class="btn text-center borderbtn" onclick="inquiry()"><span>1:1 문의</span></button>
-                      </div>
+                    <div class="order-item-status">배송완료</div>
+                    <div class="order-item-addCart">
+                        <button type="button" class="btn purpleBtn" onclick="reAdd()"><span>장바구니 담기</span></button>
                    </div>
-                  </div>
-                </div>  
+              </div>  
+              <!-- DB 에서 LIST 불러와서 반복문 적용끝 -->
+
+              <!-- DB 에서 LIST 불러와서 반복문 적용 (테스트)-->
+              <div class="order-list-continer d-flex align-content-between">
+                    <div class="order-item">
+                      <img src="https://img-cf.kurly.com/shop/data/goods/1605164418732l0.jpg" alt="[요플레] ONLY 3 플레인 요거트 대용량 1800mL 상품 이미지" class="order-item-thumb">
+                      <dl class="order-item-info">
+                        <dt class="order-item-name">[요플레] ONLY 3 플레인 요거트 대용량 1800mL 외 2건</dt>
+                      </dl>
+                      <dl class="order-item-info">
+                        <dt class="order-item-price">24,380원 | 8개</dt>
+                      </dl>
+                    </div>
+                    <div class="order-item-status">배송완료</div>
+                    <div class="order-item-addCart">
+                        <button type="button" class="btn purpleBtn" onclick="reAdd()"><span>장바구니 담기</span></button>
+                   </div>
+              </div>  
+              <!-- DB 에서 LIST 불러와서 반복문 적용(테스트) 끝-->
                   
-                </div>
+              <!-- 장바구니에 담기 버튼영역 -->
+              <div class="allAddCancle">
+                <button class="btn whiteBtn" type="button" width="200" height="56" radius="3" onclick="allReAdd()"><span>전체 상품 다시 담기</span></button>
+                <button class="btn greyBtn" type="button" width="200" height="56" radius="3" onclick="orderCancel()"><span>전체 상품 주문 취소</span></button>
               </div>
-              
+
+              <!-- 안내 -->
+              <div class="notice"><span>주문취소는 [주문완료] 상태일 경우에만 가능합니다.</span></div>
+
+              <!-- 결제정보 / 금액, 적립금, 결제방법 -->
+              <div><h5 class="infoTitle">결제정보</h5></div>
+              <ul class="infoContent">
+                  <li>
+                    <span class="title1">상품금액</span>
+                    <span class="content">21,380
+                      <span class="content">원</span>
+                    </span>
+                  </li>
+                  <li><span class="title1">배송비</span>
+                    <span class="content">3,000
+                      <span class="content">원</span>
+                    </span>
+                  </li>
+                  <li><span class="title1">결제금액</span>
+                    <span class="content">24,380
+                      <span class="content">원</span>
+                    </span>
+                  </li>
+                  <li>
+                    <span class="title1">적립금액</span>
+                    <span class="content">1,497
+                      <span class="content">원</span>
+                    </span>
+                  </li>
+                  <li>
+                      <span class="title1">결제방법</span>
+                      <span class="content">네이버페이(신용카드)</span>
+                  </li>
+                </ul>
+
+              <!-- 주문정보 / 주문번호, 주문자, 결제 일시 -->
+              <div><h5 class="infoTitle">주문정보</h5></div>
+              <ul class="infoContent">
+                <li>
+                  <span class="title2">주문번호</span>
+                  <span class="content">2282501150018</span>
+                  </li>
+                  <li>
+                    <span class="title2">보내는 분</span>
+                    <span class="content">임수진</span>
+                  </li>
+                  <li>
+                    <span class="title2">결제일시</span>
+                    <span class="content">2022-09-26 01:16:05</span>
+                </li>
+              </ul>
+
+              <!-- 배송정보 / 받는사람, 연락처 주소, 장소 포장?-->
+              <div class="css-1bsokvi e1jm6dy15"><h5 class="infoTitle">배송정보</h5></div>
+             
+              <ul class="infoContent">
+                <li>
+                  <span class="title2">받는분</span>
+                  <span class="content">ddu</span>
+                </li>
+                <li>
+                  <span class="title2">핸드폰</span>
+                  <span class="content">010-4144-****</span>
+                </li>
+                <li>
+                  <span class="title2">주소</span>
+                  <span class="content">(02063) 서울 우리집</span>
+                </li>
+                <li>
+                  <span class="title2">받으실 장소</span>
+                  <span class="content">문 앞</span>
+                </li>
+                <li>
+                  <span class="title2">공동현관 출입방법</span>
+                  <span class="content">공동현관 비밀번호 (************)</span>
+                </li>
+                <li>
+                  <span class="title2">포장 방법</span>
+                  <span class="content">종이 포장재</span>
+                  </li>
+              </ul>
+
             </div>
             
           </div>

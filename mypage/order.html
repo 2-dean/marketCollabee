@@ -25,9 +25,14 @@
       alert("1:1문의  페이지로 이동");
     }
 
-    function
 </script>    
-  <style>
+<script>
+  function showOrderDetail() {
+    alert("주문상세페이지로");
+    location.href="/mypage/order-detail.html";
+  }
+</script>
+<style>
     .btn:active, .btn:focus {
         outline:none !important;
         box-shadow:none !important;
@@ -213,9 +218,11 @@
       <p>header</p>
     </header>
     <div id="container">
+     
         <div class="row" id="mypage-top">
             <div class="col-sm-2" style="background-color:#F7F7F7;"></div> 
             <div class="col-sm-8" style="background-color:#F7F7F7;">
+              
               <div id="mypage-cover" style="height: 392px;">
                 <div class="d-flex align-items-stretch" id="mypage-top">
  
@@ -267,6 +274,7 @@
             </div> 
             <div class="col-sm-2" style="background-color: #F7F7F7;"></div>
         </div>
+
         <div class="blank"></div>
         <div class="row" id="mypage-bottom">
           <div class="col-sm-2"></div>
@@ -277,21 +285,25 @@
               <div>
                 <ul class="list-group">
                   <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="" >공지사항</a>
-                    <span>></span>
+                    <a href="/mypage/order.html">주문내역</a><span>></span>
                   </li>
-                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                      <a href="">자주하는 질문</a>
-                    <span>></span>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <a href="/mypage/picklist.html">찜한상품</a><span>></span>
                   </li>
-                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                      <a href="">1:1 문의</a>
-                    <span>></span>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <a href="/mypage/review.html">상품후기</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/mypage/inquiry.html">상품문의</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/mypage/info.html">개인정보수정</a><span>></span>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
+          
           <!-- 마이페이지 콘텐츠 영역 -->
           <div class="col-sm-6"> 
             <div class="mypage-top3">
@@ -319,7 +331,7 @@
                 <div class="">
                   <div class="order-item-row1">
                       <div class="order-item-date">
-                        <span class="order-data bold">2022.09.26 (01시 15분)</span><a style="float: right;">주문내역 상세보기</a>
+                        <span class="order-data bold">2022.09.26 (22시 15분)</span><a onclick="showOrderDetail()" style="float: right;">주문내역 상세보기</a>
                       </div>
                   </div>
 
@@ -351,8 +363,85 @@
                       </div>
                    </div>
                   </div>
+
                 </div>  
+                
+                <div class="">
+                  <div class="order-item-row1">
+                      <div class="order-item-date">
+                        <span class="order-data bold">2022.09.23 (17시 15분)</span><a onclick="showOrderDetail()" style="float: right;">주문내역 상세보기</a>
+                      </div>
+                  </div>
+
+                  <div class="d-flex align-content-between order-item-row2">
+                    <div class="order-item">
+                      <img src="https://img-cf.kurly.com/shop/data/goods/1605164418732l0.jpg" alt="[요플레] ONLY 3 플레인 요거트 대용량 1800mL 상품 이미지" class="order-item-thumb">
+                      <dl class="order-item-info">
+                        <dt class="order-item">상품명</dt>
+                        <dd class="order-data">맛있는 식빵 외 1건</dd>
+                      </dl>
+                      <dl class="order-item-info">
+                        <dt class="order-item">주문번호</dt>
+                        <dd class="order-data">2282501150018</dd>
+                      </dl>
+                      <dl class="order-item-info">
+                        <dt class="order-item">결제방법</dt>
+                        <dd class="order-data">네이버페이</dd>
+                      </dl>
+                      <dl class="order-item-info">
+                        <dt class="order-item">결제금액</dt>
+                        <dd class="order-data">24,380원</dd>
+                      </dl>
+                    </div>
+                    <div style="width: 150px;"></div>
+                    <div class="order-item-status">
+                      <div style="width: 100px; text-align: center;" >배송완료</div>
+                      <div class="button-cover">
+                        <button type="button" class="btn text-center borderbtn" onclick="inquiry()"><span>1:1 문의</span></button>
+                      </div>
+                   </div>
+                  </div>
                   
+                </div>
+
+                <div class="">
+                  <div class="order-item-row1">
+                      <div class="order-item-date">
+                        <span class="order-data bold">2022.09.20 (01시 15분)</span><a onclick="showOrderDetail()" style="float: right;">주문내역 상세보기</a>
+                      </div>
+                  </div>
+
+                  <div class="d-flex align-content-between order-item-row2">
+                    <div class="order-item">
+                      <img src="https://img-cf.kurly.com/shop/data/goods/1605164418732l0.jpg" alt="[요플레] ONLY 3 플레인 요거트 대용량 1800mL 상품 이미지" class="order-item-thumb">
+                      <dl class="order-item-info">
+                        <dt class="order-item">상품명</dt>
+                        <dd class="order-data">[요플레] 감자칼과 감자 외 2건</dd>
+                      </dl>
+                      <dl class="order-item-info">
+                        <dt class="order-item">주문번호</dt>
+                        <dd class="order-data">2282501150018</dd>
+                      </dl>
+                      <dl class="order-item-info">
+                        <dt class="order-item">결제방법</dt>
+                        <dd class="order-data">네이버페이</dd>
+                      </dl>
+                      <dl class="order-item-info">
+                        <dt class="order-item">결제금액</dt>
+                        <dd class="order-data">24,380원</dd>
+                      </dl>
+                    </div>
+                    <div style="width: 150px;"></div>
+                    <div class="order-item-status">
+                      <div style="width: 100px; text-align: center;" >배송완료</div>
+                      <div class="button-cover">
+                        <button type="button" class="btn text-center borderbtn" onclick="inquiry()"><span>1:1 문의</span></button>
+                      </div>
+                   </div>
+                  </div>
+                  
+                </div>
+
                 </div>
               </div>
               

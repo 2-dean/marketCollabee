@@ -225,6 +225,9 @@
       margin-left: 30px;
     }
     
+    .pro_name {
+      margin-top: 10px;
+    }
     /* 작성일 */
     .Q_date {
       width: 100px;
@@ -405,48 +408,91 @@
                   <div class="Q_date">작성일</div>
                   <div class="Q_state">답변상태</div>
                 </div>
-                <ul style="padding: 0px;">
-                  <!-- 데이터 있는만큼 반복 -->     
-
-                  <button type="button" class="btn" data-toggle="collapse" data-target="#demo" style="width: 860px;">
-                  <li class="d-flex inquiryPro-row" onclick="showAnswer()">
-                      <div class="Q_proImg"><img src=""></div>
-                      <div class="Q_titleWrapCon">
-                        <div class="pro_name">[맨날먹는] 맛있는 반나나나 </div>
-                        <div class="Q_title">바나나 안익은거도 보내주시나요?</div>
-                      </div>
-                      <div class="Q_date minusPoint">22.11.23</div>
-                      <!-- 답변여부에 따라 변경-->
-                      <div class="Q_state plusPoint">답변완료</div>
-                      <!-- <div class="Q_state minusPoint">미답변</div> -->
-                    </li>
-                  </button>
-
-                  <li class="answerPro">
-                    <div class="collapse answerPro-row" id="demo">
-                      <div class="inquiryPro-Area d-flex">
-                        <div class="iconArea">
-                          <span class="icon"><i class="bi bi-question-circle"></i></span>
-                        </div>
-                        <div class="content">대추칩은 안들어오나요?</div>
-                      </div>
-
-                      <div class="answerPro-Area d-flex hide">
-                          <div class="iconArea">
-                            <span class="icon"><img  class="iconArea"></span>
-                          </div>
-                          <div class="content">
-                            안녕하세요 고객님, 먼저 저희 콜라비를 이용해 주셔서 감사합니다.
-                            <br> 품절된 또는 판매가 종료된 상품의 경우 협력사 협의 하에 따라 입고 여부 및 일정 등 결정 되고 있어, 별도 확인이 어려워 안내드리기 어려운 점 너른 양해 부탁드립니다.
-                            <br> 암튼 죄송합니당 
-                           <div class="css-1kna94k etpoi031">2022.11.23</div>
-                          </div>
-                      </div>
-
-                    </div>
-                  </li>
-                  <!-- 반복 끝-->
                 
+                <ul style="padding: 0px;">
+                 
+                  <!-- 데이터 있는 만큼 반복 -->     
+                 <section class="inquiryRow">                                                                   <!--여기 바뀌어야함-->
+                    <button type="button" class="btn" data-toggle="collapse" data-target="#demo" style="width: 860px;">
+                      <li class="d-flex inquiryPro-row" onclick="showAnswer()">
+                        <div class="Q_proImg"><img src=""></div>
+                        <div class="Q_titleWrapCon">
+                          <div class="pro_name">[맨날먹는] 맛있는 반나나나 </div>
+                          <div class="Q_title">바나나 안익은거도 보내주시나요?</div>
+                        </div>
+                        <div class="Q_date minusPoint" style="padding-top: 20px;">22.11.23</div>
+                        <!-- 답변여부에 따라 변경-->
+                        <div class="Q_state plusPoint" style="padding-top: 20px;">답변완료</div>
+                        <!-- <div class="Q_state minusPoint">답변대기</div> -->
+                      </li>
+                    </button>
+
+                    <li class="answerPro">
+                      <div class="collapse answerPro-row" id="demo">
+                        <div class="inquiryPro-Area d-flex">
+                          <div class="iconArea">
+                            <span class="icon"><i class="bi bi-question-circle"></i></span>
+                          </div>
+                          <div class="content">바나나 안 익어야지 맛있는데 ㅋ</div>
+                        </div>
+
+                        <div class="answerPro-Area d-flex hide">
+                            <div class="iconArea">
+                              <span class="icon"><img  class="iconArea"></span>
+                            </div>
+                            <div class="content">
+                              안녕하세요 고객님, 먼저 저희 콜라비를 이용해 주셔서 감사합니다.
+                              <br> 품절된 또는 판매가 종료된 상품의 경우 협력사 협의 하에 따라 입고 여부 및 일정 등 결정 되고 있어, 별도 확인이 어려워 안내드리기 어려운 점 너른 양해 부탁드립니다.
+                              <br> 암튼 죄송합니당 
+                            <div class="css-1kna94k etpoi031">2022.11.23</div>
+                            </div>
+                        </div>
+
+                      </div>
+                    </li>
+                  </section>
+                  <!-- 반복 끝-->
+                  <!-- 테스트 시작-->
+                  <section>
+                    <button type="button" class="btn" data-toggle="collapse" data-target="#demo2" style="width: 860px;">
+                      <li class="d-flex inquiryPro-row" onclick="showAnswer()">
+                          <div class="Q_proImg"><img src=""></div>
+                          <div class="Q_titleWrapCon">
+                            <div class="pro_name">[맨날먹는] 맛있는 반나나나 </div>
+                            <div class="Q_title">바나나 안익은거도 보내주시나요?</div>
+                          </div>
+                          <div class="Q_date minusPoint" style="padding-top: 20px;">22.11.23</div>
+                          <!-- 답변여부에 따라 변경-->
+                          <div class="Q_state plusPoint" style="padding-top: 20px;">답변완료</div>
+                          <!-- <div class="Q_state minusPoint">미답변</div> -->
+                      </li>
+                    </button>
+
+                    <li class="answerPro">
+                      <div class="collapse answerPro-row" id="demo2">
+                        <div class="inquiryPro-Area d-flex">
+                          <div class="iconArea">
+                            <span class="icon"><i class="bi bi-question-circle"></i></span>
+                          </div>
+                          <div class="content">바나나 안 익어야지 맛있는데 ㅋ</div>
+                        </div>
+
+                        <div class="answerPro-Area d-flex hide">
+                            <div class="iconArea">
+                              <span class="icon"><img  class="iconArea"></span>
+                            </div>
+                            <div class="content">
+                              안녕하세요 고객님, 먼저 저희 콜라비를 이용해 주셔서 감사합니다.
+                              <br> 품절된 또는 판매가 종료된 상품의 경우 협력사 협의 하에 따라 입고 여부 및 일정 등 결정 되고 있어, 별도 확인이 어려워 안내드리기 어려운 점 너른 양해 부탁드립니다.
+                              <br> 암튼 죄송합니당 
+                            <div class="css-1kna94k etpoi031">2022.11.23</div>
+                            </div>
+                        </div>
+
+                      </div>
+                    </li>
+                  <!-- 테스트 끝 -->
+            
                 </ul>
                 
                 <!--페이징처리-->

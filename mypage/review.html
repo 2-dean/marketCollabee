@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>mypage 상품 후기- 마켓콜라비</title>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
@@ -12,17 +12,676 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<script>
+  function emoneyload() {
+    alert("적립금 페이지로 이동");
+  }
+  function couponload() {
+    alert("쿠폰 페이지로 이동");
+  }
+</script>   
+<script>
+  $(function(){
+    let beforeWriteArea = document.querySelector('.beforeWriteArea');
+    let writtenArea = document.querySelector('.writtenArea');
+
+    writtenArea.classList.add('hide');
+    beforeWriteArea.classList.remove('hide');
+    $('#beforeWrite').attr('style', "border-bottom:none; color: #692498");
+    $('#written').attr('style', "background-color: #FEF7FF;");
+
+    $('#beforeWrite').click(function(){
+      beforeWriteArea.classList.remove('hide'); //보이기
+      writtenArea.classList.add('hide'); //숨김
+      $('#beforeWrite').attr('style', "border-bottom:none; color: #692498");
+      $('#written').attr('style', "background-color: #FEF7FF;");
+    });
+    $('#written').click(function(){
+      writtenArea.classList.remove('hide'); //보이기
+      beforeWriteArea.classList.add('hide');// 숨김
+      $('#written').attr('style', "border-bottom:none; color: #692498");
+      $('#beforeWrite').attr('style', "background-color: #FEF7FF;");
+    });
+  });
+
+  function writeReview() {
+
+  }
+  function modifyReview() {
+    alert("리뷰 수정 팝업?");
+  }
+  function writeProReview() {
+    alert("리뷰 작성 실행");
+  }
+</script> 
+  <style>
+    .hide {
+      display: none;
+    }
+    .btn:active, .btn:focus {
+        outline:none !important;
+        box-shadow:none !important;
+    }
+    #mypage-cover{
+      padding-bottom: 50px;
+    }
+    #mypage-top {
+      padding-top: 50px;
+      margin: auto;
+      text-align: center;
+    }
+    .blank{
+        height: 30px;
+    }
+    .mypage-top2 {
+      height: 212px;
+      display: inline-block;
+      background-color: white;
+      margin-right:5px; /*마이페이지 윗 부분 메뉴 나눔*/
+      margin-bottom: 20px;
+      padding: 30px;
+    }
+    .mypage-top2 div {
+      margin-bottom: 10px;
+    }
+    .align-left { /*적립금, 쿠폰 텍스트 정렬*/
+      text-align: left;
+    }
+    .btn{
+      padding: 0px;
+    }
+    #allgrade, #nextgrade { /*등급 버튼*/
+      font-size: small;
+      font-weight: bold;
+      background-color:#F7F7F7;
+      border-radius: 30px;
+    }
+
+    .purple-bold {
+        color: #B03FE3;
+        font-size: x-large;
+        font-weight: bold;
+    }
+    #eventbn{ /**/
+      background-color: darkolivegreen;
+      width: 100%;
+      height: 60px;
+    }
+
+
+    /* mypage-bottom 네비바*/
+    /* 네비바 제목 */
+    h3 {
+      margin: 0px 0px 15px 5px;
+    }
+
+  .list-group-item a{
+      letter-spacing: -2px; 
+      text-decoration: none;
+      color:black;
+    }
+    .list-group-item:hover {
+      background-color: #FEF7FF;
+    }     
+    .list-group-item:hover > a {
+      font-weight: bold;
+      text-decoration: none;
+      color:#B03FE3;
+    }
+    .list-group-item:hover >span {
+      font-weight: bold;
+      text-decoration: none;
+      color:#B03FE3;
+    }
+    .list-group-item a {
+      width: 100%;
+      display: block;
+    }
+
+    li span{font-size: large;
+      font-weight: bold;
+      color: black;
+    }
+
+    h2{font-weight: bold;
+      letter-spacing: -2.5px;}
+    
+    h4{font-weight: bolder;
+        letter-spacing: -3px; 
+        word-spacing: 5px;
+      }
+    .order-list-continer{
+      border: 14px 0px 16px;
+      width: 100%;
+      display: flex;
+    }
+
+    .order-item-thumb {
+      float: left;
+    }
+    .order-item-col1 {
+      padding: 5px;
+      border: 3px solid purple;
+      width: 80%;
+    }
+    .order-item-col2 {
+      width: 20%;
+      border: 3px solid purple;
+      text-align: center;        
+    }
+    .order-item-col2 .order-item {
+      line-height: 150px;
+      vertical-align: middle;
+    }
+    .order-item-col2 .button-cover {
+      margin-top: -60px;
+    }
+    
+    /* 마이페이지 컨텐츠영역 */
+    .col-sm-6 {
+      padding: 15px;
+      padding-right: 40px;
+    }
+    .mypage-top3{
+      width: 100%; 
+      height: 100px;
+      /* border-bottom: 2px solid black; */
+    }
+    .mypage-top4{
+      padding: 20px 0px 15px 0px;
+    }
+
+    .menuInfo {
+      list-style: none;
+      font-size: small;
+      color: #666666;
+      margin-bottom: 3px;
+    }
+    .menuInfoList {
+      padding: 0px;
+    }
+    .menuInfo span {
+      font-size: small;
+      color: #666666;
+      text-decoration: underline;
+    }
+
+
+    
+   /* 상품문의목록  */
+
+   .inquiryPro-col {
+      text-align: center; 
+      padding: 20px 0px; 
+      border-top: 2px solid black;
+      border-bottom: 1px solid black;
+    }
+    .inquiryPro-row {
+      text-align: center; 
+      padding: 20px 0px; 
+      border-bottom: 1px solid lightgray;
+      font-size: small;
+    }
+    .inquiryPro-Area {
+      padding: 20px 26px 0px 100px;
+    }
+    
+    .inquiryPro-col> div {
+      font-weight: bold;
+      font-size: small;
+      letter-spacing: -1px;
+    }
+    .answerPro {
+      list-style-type: none;
+    }
+    .answerPro-row {
+      padding: 20px 0px;
+    }
+    .answerPro-Area {  
+      padding: 20px 26px 30px 100px;
+    }
+
+    /* 상품문의 썸네일 */
+    .Q_proImg {
+      border: 1px solid slateblue;
+      width: 60px;
+      height: 60px;
+      margin-left: 20px;
+    }
+    
+    /* 문의글 메뉴(제목) */
+    .Q_titleWrap { 
+      width: 620px; 
+      text-align: center;
+    }
+    
+    /* 문의글 제목 */
+    .Q_titleWrapCon {
+      width: 510px; 
+      text-align: left; 
+      margin-left: 30px;
+    }
+    
+    .pro_name {
+      margin-top: 10px;
+    }
+    /* 작성일 */
+    .Q_date {
+      width: 100px;
+    }
+    /* 답변상태 */
+    .Q_state {
+      width: 100px;
+    }
+
+    .category > span {
+      font-size: small;
+      color: #666666;
+    }
+
+    .category {
+      margin-bottom: 20px;
+    }
+    
+    .inquiryPro-Area {
+      margin-bottom: 40px;
+    }
+    .answerPro-Area {
+      margin-bottom: 40px;
+      background-color: #FEF7FF;
+    }
+    .iconArea {
+      border: 1px solid slateblue;
+      width: 24px;
+      height: 24px;
+    }
+    .content {
+      margin-left: 10px;
+      font-size: small;
+      font-weight: lighter;
+    }
+    
+    /* 포인트 금액별 색상 */
+    .plusPoint {
+      color: #692498;
+    }
+    .minusPoint {
+      color:  #666666;
+    }
+
+    /* 페이징 영역 */
+    .pagination {
+      text-align: center;    
+      margin-top: 60px;
+    }
+
+    .paginationBtn {
+      background-color: white;
+      border: 1px solid lightgray;
+      width: 33px !important;
+      height: 32px ;
+    }
+    .paginationBtn > i {
+      font-size: small;
+      font-weight: bold;
+      color: gray;
+    }
+    .paginationBtn:hover {
+      background-color: #FEF7FF;
+    }
+
+    /* 리뷰메뉴버튼 */
+    .reviewBtn {
+      width: 455px;
+      height: 60px;
+      background-color: white;
+      border: 1px solid #666666;
+      border-collapse: collapse;
+      padding: 0px;
+      margin: 0px;
+      font-weight: bold;
+    }
+    #beforeWrite {
+      border-right: none;
+    }
+  /* -------------------------------------  */
+       /* 리뷰창 제목 */
+       .proReviewTitle{
+        text-align: left;
+    }
+
+     label { 
+         display: block; 
+         margin-top: 20px; 
+         letter-spacing: 2px; 
+     } 
+     form { 
+         margin: 0 auto; 
+         width: 459px; 
+     } 
+     input, textarea { 
+         width: 439px; 
+         height: 27px; 
+         background-color: #efefef; 
+         border-radius: 6px; 
+         border: 1px solid #dedede; 
+         padding: 10px; 
+         margin-top: 3px; 
+         font-size: 0.9em; 
+         color: #3a3a3a; 
+     } 
+
+    input:focus, textarea:focus{ 
+        border: 1px solid #97d6eb; 
+    } 
+
+     textarea {
+      width: 479px;
+      height: 157px;
+      resize: none;
+      padding: 15px 16px;
+    }
+     #submit{ 
+         width: 127px; 
+         height: 48px; 
+         text-align: center; 
+         border: none; 
+         margin-top: 20px; 
+         cursor: pointer; 
+     } 
+     #submit:hover{ 
+         color: #fff; 
+         background-color: #216282; 
+         opacity: 0.9; 
+     } 
+     #cancel { 
+         width: 127px; height: 48px; 
+         text-align: center; 
+         border: none; 
+         margin-top: 20px; 
+         cursor: pointer; 
+     } 
+     #cancel:hover{ 
+         color: #fff; 
+         background-color: #216282; 
+         opacity: 0.9; 
+     }
+
+    .review-modal { 
+         position: fixed; 
+         left: 0; 
+         top: 0; 
+         width: 100%; 
+         height: 100%; 
+         background-color: rgba(0, 0, 0, 0.5); 
+         opacity: 0; 
+         visibility: hidden; 
+         transform: scale(1.1); 
+         transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s; 
+     } 
+     .modal-content { 
+         position: absolute; 
+         top: 50%; 
+         left: 50%; 
+         transform: translate(-50%, -50%); 
+         background-color: white; 
+         padding: 1rem 1.5rem; 
+         width: 700px; 
+         height: 550px; 
+         border-radius: 0.5rem; 
+     } 
+     .close-button { 
+         float: right; 
+         width: 1.5rem; 
+         line-height: 1.5rem; 
+         text-align: center; 
+         cursor: pointer; 
+         border-radius: 0.25rem; 
+         background-color: lightgray; 
+     } 
+     .close-button:hover { 
+         background-color: darkgray; 
+     } 
+     .show-modal { 
+         opacity: 1; 
+         visibility: visible; 
+         transform: scale(1.0); 
+         transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; 
+     } 
+     .writeProImg {
+        width: 60px;
+        height: 60px;
+        border: 1px solid #216282;
+     }
+    .writeProName{
+        font-weight: bold;
+    }
+    
+    /*  파일첨부 모양 바꾸기 */
+    /* 1. 인풋스타일 변경 */
+    .filebox .upload-name {
+        display: inline-block;
+        height: 40px;
+        padding: 0 10px;
+        vertical-align: middle;
+        border: 1px solid #dddddd;
+        width: 78%;
+        color: #999999;
+    }
+    /* 2. 라벨스타일변경 */
+    .filebox label {
+        background-image: '<i class="bi bi-camera"></i>';
+    }
+    /* 3. 기존 모양 없애기 */
+    .filebox input[type="file"] {
+        position: absolute;
+        width: 0;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+    }
+  
+
+</style>
+ 
   </head>
-  <body>
+
+  <body style="width: 1900px;">
     <header>
       <p>header</p>
     </header>
     <div id="container">
-        <div class="row">
-            <div class="col-sm-2" style="background-color:lavender;">.col-sm-2</div>
-            <div class="col-sm-8" style="background-color:lavenderblush;">.col-sm-8</div>
-            <div class="col-sm-2" style="background-color:lavender;">.col-sm-2</div>
+        <div class="row" id="mypage-top">
+            <div class="col-sm-2" style="background-color:#F7F7F7;"></div> 
+            <div class="col-sm-8" style="background-color:#F7F7F7;">
+              <div id="mypage-cover" style="height: 392px;">
+                <div class="d-flex align-items-stretch" id="mypage-top">
+ 
+                  <div class="mypage-top2" style="width: 40%;">
+                    <div style="text-align: left;" id="user-grade" >
+                      <div style="display: inline-block; height: 48px; margin-right: 20px;">
+                        <img src="/static/icon_img/grade1.png" alt="그림" style="width: 48px; height: 48px;">
+                      </div>
+                      <div style="display: inline-block; width: 156px;">
+                        <span class="align-left" id="user-name"><b>000님</b></span>
+                      </div>
+                    </div>
+                      
+                    <div class="align-left" id="save-rate"  style="text-align: left;">적립 0.1%</div>
+                    <div id="membership-info-button" style="text-align: left; margin: auto;" >
+                      <button type="button" class="btn" id="allgrade" style="margin-right: 50px; width: 151px; height: 41px;" onclick="">전체등급 보기</button>
+                      <button type="button" class="btn" id="nextgrade"style="width: 151px; height: 41px;" onclick="">다음 달 예상등급 보기</button>
+                    </div>
+                  </div> 
+
+                  <div class="mypage-top2" style="width: 30%;">
+                      <button type="button" class="btn" style="width: 100%; height: 100%;" onclick="emoneyload()"> 
+                        <div style="padding-bottom: 25px;">
+                          <div class="align-left" style="margin-bottom: 10px;"><b>적립금></b></div>
+                          <div></div>
+                          <div class="align-left purple-bold">1,497원</div>
+                          <div class="align-left">소멸예정 0원</div>
+                        </div>
+                      </button>
+                  </div>
+
+                  <div class="mypage-top2" style="width: 30%; margin: 0;">
+                    <button type="button" class="btn" style="width: 100%; height: 100%;" onclick="couponload()">
+                      <div style="padding-bottom: 57px;">
+                        <div class="align-left" style="margin-bottom:10px;"><b>쿠폰></b></div>
+                        <div class="align-left purple-bold">1개</div>
+                      </div>
+                      <div></div>
+                    </button>
+                  </div>
+
+                </div>
+                <div id="eventbn">
+                    <img src="#" alt="이미지 배너">
+                </div>
+              
+              </div>
+              
+            </div> 
+            <div class="col-sm-2" style="background-color: #F7F7F7;"></div>
         </div>
+        <div class="blank"></div>
+        <div class="row" id="mypage-bottom">
+          <div class="col-sm-2"></div>
+          <!-- 네비메뉴 -->
+          <div class="col-sm-2" style="padding:15px; padding-left: 30px;">  
+            <div class="container-bottom-menu">
+              <h3 class="font-weight-bold">마이 콜라비</h3>
+              <div>
+                <ul class="list-group">
+                  <li class="list-group-item d-flex justify-content-between align-items-center gg">
+                    <a href="/mypage/order.html">주문내역</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <a href="/mypage/picklist.html">찜한상품</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                      <a href="/mypage/review.html">상품후기</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/mypage/inquiry.html">상품문의</a><span>></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="/mypage/info.html">개인정보수정</a><span>></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- 마이페이지 콘텐츠 영역 -->
+          <div class="col-sm-6"> 
+
+            <div class="mypage-top3">
+                <div>
+                  <div id="category-name" style="display: inline-block; margin-bottom: 9px;">
+                    <h4 style="margin-right: 20px;">상품후기</h4>
+                  </div>
+                  <div>
+                    <ul class="menuInfoList">
+                      <li class="menuInfo">상품에 대한 후기를 남기는 공간입니다. 해당 게시판의 성격과 다른 글은 사전동의 없이 담당 게시판으로 이동될 수 있습니다.</li>
+                      <li class="menuInfo">배송관련, 주문(취소/교환/환불)관련 문의 및 요청사항은 마이컬리 내 <span class="highlight" href="/mypage/inquiry/list">1:1 문의</span>에 남겨주세요.</li>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+            
+            <div class="mypage-top4">
+              <!-- 버튼 메뉴 영역 -->
+              <div role="tablist" aria-orientation="horizontal" class="d-flex align-content-between" data-reach-tab-list="">
+                <button class="reviewBtn chk " id="beforeWrite" type="button">작성 가능 후기</button>
+                <button class="reviewBtn chk " id="written" type="button">작성한 후기</button>
+              </div>
+              
+              <!-- 작성가능 후기 영역 -->
+              <div class="beforeWriteArea hide">
+                <div class="d-flex align-content-lg-between" style="padding:10px 0px; border-bottom: 1px solid black;">
+                  <div style="width: 780px; font-weight: bold;">총 3개</div>                
+                  <div style="float: right; color: #666666; font-size: small; margin-top: 5px; font-weight: bold;"><a>작성시 유의사항<i class="bi-question-circle"></i></a></div> <!--클릭시 모달창-->
+                </div>
+
+                <div class="review-container" style="">
+                  <li class="d-flex inquiryPro-row" style="padding: 20px;">
+                    <div class="pro_img"><img src="" style="width: 60px; height: 60px; border-radius: 5px;"></div>
+                    <div class="pro_title" style="width: 560px; text-align: left;padding-left:20px"  >
+                      <div class="pro_name font-weight-bold">[맨날먹는] 맛있는 반나나나 </div>
+                      <div class="">2022.11.17 배송완료</div>
+                    </div>
+                    <div class="review-deadline minusPoint" style="width: 135px; margin-top: 20px; margin-right:20px;">12.17까지 작성 가능</div>
+                    <div class="write_review" style="margin-top: 13px;">
+                      <button type="button" class="trigger btn font-weight-bold" id = "writeReviewBtn" style="border: 1px solid lightgray; width: 100px; height: 36px; font-size: small; color: #666666;">후기작성</button> 
+                    </div>
+                  </li>
+                </div>
+                <div class="review-modal"> 
+                  <div class="modal-content" style="border: 5px solid green;"> 
+                      <span class="close-button">&times;</span> 
+                      <h3 class="proReviewTitle">후기 작성</h3> 
+          
+                      <form action="" method="get" style="margin: 0px;">
+                          <div class="productInfo d-flex align-content-between" style="margin-bottom: 20px;">
+                              <div class="writeProImg"><img src="#"></div>
+                              <div class="writeProName">[도제]촉촉한 생식빵 2cm //제품명</div>
+                          </div>
+                          <div class="writeArea d-flex">
+                              <div style="width: 100px; border: 1px solid black">
+                                  <label for="R_content">내용</label> 
+                              </div>
+                              <div>
+                                  <textarea type="text" name="R_content" placeholder="상품 특성에 맞는 후기를 작성해주세요. 예)레시피, 겉포장 속 실제 구성품 사진, 플레이팅, 화장품 사용자의 피부타입 등 (최소10글자 이상)" required="required"></textarea>
+                              </div>
+                          </div>
+                        <div class="filebox">
+                          <div style="width: 100px;">사진첨부 최대8장 </div>
+                            <label for="file"><img src="" style="width: 60px; height: 60px;"></label>
+                          <input type="file" id="file"> 
+                          </div>
+                          <input type="button" id="cancel" value="취소"> 
+                          <input type="button" id="submit" value="보내기" onclick="writeProReview()"> 
+                      </form> 
+          
+                  </div> 
+              </div>
+
+            </div> <!-- beforeWriteArea 닫힘 -->
+
+               <!-- 작성한 후기 영역 -->
+               <div class="writtenArea hide">
+                <div class="d-flex align-content-lg-between" style="padding:10px 0px; border-bottom: 1px solid black;">
+                  <div style="width: 780px; font-weight: bold;">총 3개</div>                
+                  <div style="float: right; color: #666666; font-size: small; margin-top: 5px; font-weight: bold;"><a>작성시 유의사항<i class="bi-question-circle"></i></a></div> <!--클릭시 모달창-->
+                </div>
+                <div class="review-container" style="">
+                  <li class="d-flex inquiryPro-row" style="padding: 20px;">
+                    <div class="pro_img"><img src="" style="width: 60px; height: 60px; border-radius: 5px;"></div>
+                    <div class="pro_title" style="width: 560px; text-align: left;padding-left:20px"  >
+                      <div class="pro_name font-weight-bold">[맨날먹는] 맛있는 반나나나 </div>
+                      <div class="">2022.11.17 배송완료</div>
+                    </div>
+                    <div class="review-deadline minusPoint" style="width: 135px; margin-top: 20px; margin-right:20px;"></div>
+                    <!-- 답변여부에 따라 변경-->
+                    <div class="write_review" style="margin-top: 13px;">
+                      <button type="button" class="btn font-weight-bold" onclick="modifyReview()" style="border: 1px solid lightgray; width: 100px; height: 36px; font-size: small; color: #666666;">후기수정</button> 
+                    </div>
+                  </li>
+                </div>
+              </div> <!-- writtenArea 닫힘 -->
+
+
+            </div>
+            
+          </div> <!-- col-sm-6 -->
+          
+          <div class="col-sm-2"></div>
+          </div>
+          <div class="blank"></div>
+      </div>
+
         
     </div>    
     
@@ -31,4 +690,30 @@
       <p>footer</p>
     </footer>
   </body>
+
+  <script>
+// 후기작성 팝업용 스크립트 html로드 후 실행
+    var modal = document.querySelector(".review-modal"); 
+    var trigger = document.querySelector(".trigger"); 
+    var closeButton = document.querySelector(".close-button"); 
+    var cancelButton = document.querySelector("#cancel");
+  
+    //console.log(modal);
+  
+    function toggleModal() { 
+        modal.classList.toggle("show-modal"); 
+    }
+  
+    function windowOnClick(event) { 
+        if (event.target === modal) { 
+            toggleModal(); 
+        } 
+    }
+  
+    trigger.addEventListener("click", toggleModal); 
+    closeButton.addEventListener("click", toggleModal); 
+    cancel.addEventListener("click", toggleModal); 
+    window.addEventListener("click", windowOnClick); 
+  
+  </script>
 </html>

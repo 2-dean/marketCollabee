@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+
+
+    <style type="text/css"> 
+     body{ 
+         text-align: center; 
+         display: block; 
+         margin: 0 auto; 
+         font-size: 16px; 
+         color: #999; 
+     } 
+    
+     /* 리뷰창 제목 */
+    .proReviewTitle{
+        text-align: left;
+    }
+
+     label { 
+         display: block; 
+         margin-top: 20px; 
+         letter-spacing: 2px; 
+     } 
+     form { 
+         margin: 0 auto; 
+         width: 459px; 
+     } 
+     input, textarea { 
+         width: 439px; 
+         height: 27px; 
+         background-color: #efefef; 
+         border-radius: 6px; 
+         border: 1px solid #dedede; 
+         padding: 10px; 
+         margin-top: 3px; 
+         font-size: 0.9em; 
+         color: #3a3a3a; 
+     } 
+
+    input:focus, textarea:focus{ 
+        border: 1px solid #97d6eb; 
+    } 
+
+     textarea {
+      width: 479px;
+      height: 157px;
+      resize: none;
+      padding: 15px 16px;
+    }
+     #submit{ 
+         width: 127px; 
+         height: 48px; 
+         text-align: center; 
+         border: none; 
+         margin-top: 20px; 
+         cursor: pointer; 
+     } 
+     #submit:hover{ 
+         color: #fff; 
+         background-color: #216282; 
+         opacity: 0.9; 
+     } 
+     #cancel { 
+         width: 127px; height: 48px; 
+         text-align: center; 
+         border: none; 
+         margin-top: 20px; 
+         cursor: pointer; 
+     } 
+     #cancel:hover{ 
+         color: #fff; 
+         background-color: #216282; 
+         opacity: 0.9; 
+     }
+
+    .review-modal { 
+         position: fixed; 
+         left: 0; 
+         top: 0; 
+         width: 100%; 
+         height: 100%; 
+         background-color: rgba(0, 0, 0, 0.5); 
+         opacity: 0; 
+         visibility: hidden; 
+         transform: scale(1.1); 
+         transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s; 
+     } 
+     .modal-content { 
+         position: absolute; 
+         top: 50%; 
+         left: 50%; 
+         transform: translate(-50%, -50%); 
+         background-color: white; 
+         padding: 1rem 1.5rem; 
+         width: 700px; 
+         height: 550px; 
+         border-radius: 0.5rem; 
+     } 
+     .close-button { 
+         float: right; 
+         width: 1.5rem; 
+         line-height: 1.5rem; 
+         text-align: center; 
+         cursor: pointer; 
+         border-radius: 0.25rem; 
+         background-color: lightgray; 
+     } 
+     .close-button:hover { 
+         background-color: darkgray; 
+     } 
+     .show-modal { 
+         opacity: 1; 
+         visibility: visible; 
+         transform: scale(1.0); 
+         transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; 
+     } 
+     .writeProImg {
+        width: 60px;
+        height: 60px;
+        border: 1px solid #216282;
+     }
+    .writeProName{
+        font-weight: bold;
+    }
+
+    /*  파일첨부 모양 바꾸기 */
+    /* 1. 인풋스타일 변경 */
+    .filebox .upload-name {
+        display: inline-block;
+        height: 40px;
+        padding: 0 10px;
+        vertical-align: middle;
+        border: 1px solid #dddddd;
+        width: 78%;
+        color: #999999;
+    }
+    /* 2. 라벨스타일변경 */
+    .filebox label {
+        background-image: '<i class="bi bi-camera"></i>';
+    }
+    /* 3. 기존 모양 없애기 */
+    .filebox input[type="file"] {
+        position: absolute;
+        width: 0;
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+    }
+
+
+</style>
+</head>
+<body>
+    <h1>레어어 팝업창 띄우기</h1> 
+    <!-- 버튼 --> 
+    <button class="trigger">이메일 보내기</button> 
+    
+    <!-- 팝업 될 레이어 --> 
+    <div class="review-modal"> 
+        <div class="modal-content" style="border: 5px solid green;"> 
+            <span class="close-button">&times;</span> 
+            <h3 class="proReviewTitle">후기 작성</h3> 
+
+            <form action="" method="POST">
+                <div class="productInfo d-flex">
+                    <div class="writeProImg" style="display: inline-block"><img src="#"></div>
+                    <div class="writeProName" style="display: inline-block">[도제]촉촉한 생식빵 2cm //제품명</div>
+                </div>
+                <div class="writeArea d-flex">
+                    <div>
+                        <label for="R_content">내용</label> 
+                    </div>
+                    <div>
+                        <textarea type="text" name="R_content" placeholder="상품 특성에 맞는 후기를 작성해주세요. 예)레시피, 겉포장 속 실제 구성품 사진, 플레이팅, 화장품 사용자의 피부타입 등 (최소10글자 이상)" required="required"></textarea>
+                    </div>
+                </div>
+              <div class="filebox">
+                <div>사진첨부 최대8장 </div>
+                  <label for="file"><img src="" style="width: 60px; height: 60px;"></label>
+                <input type="file" id="file"> 
+                </div>
+                <input type="button" id="cancel" value="취소"> 
+              <input type="submit" id="submit" value="보내기"> 
+            </form> 
+
+        </div> 
+    </div>
+
+   <script type="text/javascript"> 
+        var modal = document.querySelector(".review-modal"); 
+        var trigger = document.querySelector(".trigger"); 
+        var closeButton = document.querySelector(".close-button"); 
+        var cancelButton = document.querySelector("#cancel");
+
+       //console.log(modal);
+
+       function toggleModal() { 
+            modal.classList.toggle("show-modal"); 
+        }
+
+       function windowOnClick(event) { 
+            if (event.target === modal) { 
+                toggleModal(); 
+            } 
+        }
+
+       trigger.addEventListener("click", toggleModal); 
+        closeButton.addEventListener("click", toggleModal); 
+        cancel.addEventListener("click", toggleModal); 
+        window.addEventListener("click", windowOnClick); 
+    </script>
+
+</body>
+</html>
