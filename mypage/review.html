@@ -346,8 +346,9 @@
     }
   /* -------------------------------------  */
        /* 리뷰창 제목 */
-       .proReviewTitle{
-        text-align: left;
+    .proReviewTitle{
+      text-align: left;
+      margin: 20px 0px 30px 0px;
     }
 
      label { 
@@ -356,8 +357,8 @@
          letter-spacing: 2px; 
      } 
      form { 
-         margin: 0 auto; 
-         width: 459px; 
+      margin: 0 auto; 
+      width: 100%; 
      } 
      input, textarea { 
          width: 439px; 
@@ -375,13 +376,14 @@
         border: 1px solid #97d6eb; 
     } 
 
+    /*리뷰 내용 적는 부분*/
      textarea {
-      width: 479px;
+      width: 530px;
       height: 157px;
       resize: none;
       padding: 15px 16px;
     }
-     #submit{ 
+     #write_review{ 
          width: 127px; 
          height: 48px; 
          text-align: center; 
@@ -389,9 +391,9 @@
          margin-top: 20px; 
          cursor: pointer; 
      } 
-     #submit:hover{ 
+     #write_review:hover{ 
          color: #fff; 
-         background-color: #216282; 
+         background-color: #692498; 
          opacity: 0.9; 
      } 
      #cancel { 
@@ -403,7 +405,7 @@
      } 
      #cancel:hover{ 
          color: #fff; 
-         background-color: #216282; 
+         background-color: #692498; 
          opacity: 0.9; 
      }
 
@@ -454,10 +456,20 @@
         border: 1px solid #216282;
      }
     .writeProName{
+        margin-top: 13px;
         font-weight: bold;
     }
     
+
+    .filebox, .buttonBox {
+      width: 100%;
+    }
     /*  파일첨부 모양 바꾸기 */
+    /*위치조정*/
+    .fileIconBox {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
     /* 1. 인풋스타일 변경 */
     .filebox .upload-name {
         display: inline-block;
@@ -618,32 +630,39 @@
                     </div>
                   </li>
                 </div>
+                <!-- 후기작성 팝업 영역 -->
                 <div class="review-modal"> 
-                  <div class="modal-content" style="border: 5px solid green;"> 
-                      <span class="close-button">&times;</span> 
+                  <div class="modal-content"> 
+            
                       <h3 class="proReviewTitle">후기 작성</h3> 
           
                       <form action="" method="get" style="margin: 0px;">
                           <div class="productInfo d-flex align-content-between" style="margin-bottom: 20px;">
-                              <div class="writeProImg"><img src="#"></div>
+                              <div class="writeProImg" style="margin: 0px 20px"><img src="#"></div>
                               <div class="writeProName">[도제]촉촉한 생식빵 2cm //제품명</div>
                           </div>
                           <div class="writeArea d-flex">
-                              <div style="width: 100px; border: 1px solid black">
-                                  <label for="R_content">내용</label> 
+                              <div>
+                                  <label for="R_content"style="width: 80px; text-align: left;  margin: 0px; margin-right: 20px; border: 1px solid #692498;" >내용</label> 
                               </div>
                               <div>
                                   <textarea type="text" name="R_content" placeholder="상품 특성에 맞는 후기를 작성해주세요. 예)레시피, 겉포장 속 실제 구성품 사진, 플레이팅, 화장품 사용자의 피부타입 등 (최소10글자 이상)" required="required"></textarea>
                               </div>
                           </div>
-                        <div class="filebox">
-                          <div style="width: 100px;">사진첨부 최대8장 </div>
-                            <label for="file"><img src="" style="width: 60px; height: 60px;"></label>
-                          <input type="file" id="file"> 
+                        <div class="filebox d-flex align-content-between" style="border: 1px solid #692498; margin-top:20px">
+                          <div style="width: 80px; text-align: left; margin-top: 15px border: 1px solid #692498;">사진첨부</div>
+                            <div class="fileIconBox">
+                              <label for="file"><img src="" style="width: 60px; height: 60px; border: 1px solid #692498;" alt="카메라" ></label>
+                            </div>
+                              <div>
+                            <input type="file" id="file"> 
                           </div>
+                        </div>
+                        <div class="buttonBox" style="text-align: center;">
                           <input type="button" id="cancel" value="취소"> 
-                          <input type="button" id="submit" value="보내기" onclick="writeProReview()"> 
-                      </form> 
+                          <input type="button" id="write_review" value="보내기" onclick="writeProReview()"> 
+                        </div>
+                        </form> 
           
                   </div> 
               </div>
